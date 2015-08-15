@@ -1,0 +1,1442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>File Compare</title>
+  <style type="text/css">
+  #page {
+    font-family: sans-serif;
+  }
+  table {
+    border-collapse: collapse;
+  }
+  td {
+    white-space: nowrap;
+    font-family: monospace;
+    font-size: x-small;
+    vertical-align: top;
+  }
+  td.fileName {
+    background: #E6E6E6;
+    font-family: sans-serif;
+    font-size: small;
+  }
+  td.lineNumber {
+    text-align: right;
+    background: #FFC800;
+  }
+  td.added {
+    background: #BEF0BE;
+  }
+  td.removed {
+    background: #C8C8FF;
+  }
+  td.changed {
+    background: #FFC8C8;
+  }
+  td.equal {
+    background: #FFFFFF;
+  }
+  td.empty {
+    background: #F2F2F2;
+  }
+  </style>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+  <table>
+    <tr>
+      <td colspan="2" class="filename">wk3_spaceship_pygame.py&nbsp;(HEAD)</td>
+      <td colspan="2" class="filename">wk3_spaceship_pygame.py&nbsp;(Index)</td>
+    </tr>
+      <tr>
+<td class="lineNumber">1</td><td class="equal">#&nbsp;program&nbsp;for&nbsp;Spaceship</td><td class="lineNumber">1</td><td class="equal">#&nbsp;program&nbsp;for&nbsp;Spaceship</td>
+      </tr>
+      <tr>
+<td class="lineNumber">2</td><td class="equal">#&nbsp;got&nbsp;(most)&nbsp;all&nbsp;simplegui&nbsp;statements&nbsp;converted&nbsp;to&nbsp;pygame&nbsp;commands</td><td class="lineNumber">2</td><td class="equal">#&nbsp;got&nbsp;(most)&nbsp;all&nbsp;simplegui&nbsp;statements&nbsp;converted&nbsp;to&nbsp;pygame&nbsp;commands</td>
+      </tr>
+      <tr>
+<td class="lineNumber">3</td><td class="equal"></td><td class="lineNumber">3</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">4</td><td class="equal">import&nbsp;pygame,&nbsp;sys</td><td class="lineNumber">4</td><td class="equal">import&nbsp;pygame,&nbsp;sys</td>
+      </tr>
+      <tr>
+<td class="lineNumber">5</td><td class="equal">from&nbsp;pygame.locals&nbsp;import&nbsp;*</td><td class="lineNumber">5</td><td class="equal">from&nbsp;pygame.locals&nbsp;import&nbsp;*</td>
+      </tr>
+      <tr>
+<td class="lineNumber">6</td><td class="equal"></td><td class="lineNumber">6</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">7</td><td class="equal">import&nbsp;math</td><td class="lineNumber">7</td><td class="equal">import&nbsp;math</td>
+      </tr>
+      <tr>
+<td class="lineNumber">8</td><td class="equal">import&nbsp;random</td><td class="lineNumber">8</td><td class="equal">import&nbsp;random</td>
+      </tr>
+      <tr>
+<td class="lineNumber">9</td><td class="equal"></td><td class="lineNumber">9</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">10</td><td class="equal">#TODO&nbsp;refresh&nbsp;myself&nbsp;on&nbsp;why&nbsp;doing&nbsp;this</td><td class="lineNumber">10</td><td class="equal">#TODO&nbsp;refresh&nbsp;myself&nbsp;on&nbsp;why&nbsp;doing&nbsp;this</td>
+      </tr>
+      <tr>
+<td class="lineNumber">11</td><td class="equal">pygame.mixer.pre_init()</td><td class="lineNumber">11</td><td class="equal">pygame.mixer.pre_init()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">12</td><td class="equal">pygame.init()</td><td class="lineNumber">12</td><td class="equal">pygame.init()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">13</td><td class="equal"></td><td class="lineNumber">13</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">14</td><td class="equal">#&nbsp;Define&nbsp;some&nbsp;colors&nbsp;as&nbsp;global&nbsp;constants</td><td class="lineNumber">14</td><td class="equal">#&nbsp;Define&nbsp;some&nbsp;colors&nbsp;as&nbsp;global&nbsp;constants</td>
+      </tr>
+      <tr>
+<td class="lineNumber">15</td><td class="equal">BLACK&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;(&nbsp;&nbsp;&nbsp;0,&nbsp;&nbsp;&nbsp;0,&nbsp;&nbsp;&nbsp;0)</td><td class="lineNumber">15</td><td class="equal">BLACK&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;(&nbsp;&nbsp;&nbsp;0,&nbsp;&nbsp;&nbsp;0,&nbsp;&nbsp;&nbsp;0)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">16</td><td class="equal">WHITE&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;(&nbsp;255,&nbsp;255,&nbsp;255)</td><td class="lineNumber">16</td><td class="equal">WHITE&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;(&nbsp;255,&nbsp;255,&nbsp;255)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">17</td><td class="equal">GREEN&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;(&nbsp;&nbsp;&nbsp;0,&nbsp;255,&nbsp;&nbsp;&nbsp;0)</td><td class="lineNumber">17</td><td class="equal">GREEN&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;(&nbsp;&nbsp;&nbsp;0,&nbsp;255,&nbsp;&nbsp;&nbsp;0)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">18</td><td class="equal">RED&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;(&nbsp;255,&nbsp;&nbsp;&nbsp;0,&nbsp;&nbsp;&nbsp;0)</td><td class="lineNumber">18</td><td class="equal">RED&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;(&nbsp;255,&nbsp;&nbsp;&nbsp;0,&nbsp;&nbsp;&nbsp;0)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">19</td><td class="equal"></td><td class="lineNumber">19</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">20</td><td class="equal">#&nbsp;globals&nbsp;for&nbsp;user&nbsp;interface</td><td class="lineNumber">20</td><td class="equal">#&nbsp;globals&nbsp;for&nbsp;user&nbsp;interface</td>
+      </tr>
+      <tr>
+<td class="lineNumber">21</td><td class="equal">WIDTH&nbsp;=&nbsp;800</td><td class="lineNumber">21</td><td class="equal">WIDTH&nbsp;=&nbsp;800</td>
+      </tr>
+      <tr>
+<td class="lineNumber">22</td><td class="equal">HEIGHT&nbsp;=&nbsp;600</td><td class="lineNumber">22</td><td class="equal">HEIGHT&nbsp;=&nbsp;600</td>
+      </tr>
+      <tr>
+<td class="lineNumber">23</td><td class="equal">FPS&nbsp;=&nbsp;30</td><td class="lineNumber">23</td><td class="equal">FPS&nbsp;=&nbsp;30</td>
+      </tr>
+      <tr>
+<td class="lineNumber">24</td><td class="equal">score&nbsp;=&nbsp;0</td><td class="lineNumber">24</td><td class="equal">score&nbsp;=&nbsp;0</td>
+      </tr>
+      <tr>
+<td class="lineNumber">25</td><td class="equal">lives&nbsp;=&nbsp;3</td><td class="lineNumber">25</td><td class="equal">lives&nbsp;=&nbsp;3</td>
+      </tr>
+      <tr>
+<td class="lineNumber">26</td><td class="equal">timer_debris_fld&nbsp;=&nbsp;0</td><td class="lineNumber">26</td><td class="equal">timer_debris_fld&nbsp;=&nbsp;0</td>
+      </tr>
+      <tr>
+<td class="lineNumber">27</td><td class="equal">rotate_cclockwise&nbsp;=&nbsp;False</td><td class="lineNumber">27</td><td class="equal">rotate_cclockwise&nbsp;=&nbsp;False</td>
+      </tr>
+      <tr>
+<td class="lineNumber">28</td><td class="equal">rotate_clockwise&nbsp;=&nbsp;False</td><td class="lineNumber">28</td><td class="equal">rotate_clockwise&nbsp;=&nbsp;False</td>
+      </tr>
+      <tr>
+<td class="lineNumber">29</td><td class="equal">msl_tgr&nbsp;=&nbsp;False</td><td class="lineNumber">29</td><td class="equal">msl_tgr&nbsp;=&nbsp;False</td>
+      </tr>
+      <tr>
+<td class="lineNumber">30</td><td class="equal">rock&nbsp;=&nbsp;[]&nbsp;&nbsp;#&nbsp;initialize&nbsp;rock&nbsp;list</td><td class="lineNumber">30</td><td class="equal">rock&nbsp;=&nbsp;[]&nbsp;&nbsp;#&nbsp;initialize&nbsp;rock&nbsp;list</td>
+      </tr>
+      <tr>
+<td class="lineNumber">31</td><td class="equal">msl&nbsp;=&nbsp;[]&nbsp;&nbsp;&nbsp;#&nbsp;initialize&nbsp;missile&nbsp;list</td><td class="lineNumber">31</td><td class="equal">msl&nbsp;=&nbsp;[]&nbsp;&nbsp;&nbsp;#&nbsp;initialize&nbsp;missile&nbsp;list</td>
+      </tr>
+      <tr>
+<td class="lineNumber">32</td><td class="equal">cyclectr&nbsp;=&nbsp;0&nbsp;#&nbsp;counter&nbsp;for&nbsp;game&nbsp;loop&nbsp;cycles</td><td class="lineNumber">32</td><td class="equal">cyclectr&nbsp;=&nbsp;0&nbsp;#&nbsp;counter&nbsp;for&nbsp;game&nbsp;loop&nbsp;cycles</td>
+      </tr>
+      <tr>
+<td class="lineNumber">33</td><td class="equal">#&nbsp;this&nbsp;.set_mode&nbsp;has&nbsp;to&nbsp;come&nbsp;before&nbsp;loading&nbsp;images&nbsp;with&nbsp;'.convert()'</td><td class="lineNumber">33</td><td class="equal">#&nbsp;this&nbsp;.set_mode&nbsp;has&nbsp;to&nbsp;come&nbsp;before&nbsp;loading&nbsp;images&nbsp;with&nbsp;'.convert()'</td>
+      </tr>
+      <tr>
+<td class="lineNumber">34</td><td class="equal">#&nbsp;**NOTE&nbsp;I&nbsp;had&nbsp;to&nbsp;stip&nbsp;off&nbsp;the&nbsp;.convert&nbsp;method&nbsp;from&nbsp;.image.load&nbsp;due&nbsp;to&nbsp;non-transparent</td><td class="lineNumber">34</td><td class="equal">#&nbsp;**NOTE&nbsp;I&nbsp;had&nbsp;to&nbsp;stip&nbsp;off&nbsp;the&nbsp;.convert&nbsp;method&nbsp;from&nbsp;.image.load&nbsp;due&nbsp;to&nbsp;non-transparent</td>
+      </tr>
+      <tr>
+<td class="lineNumber">35</td><td class="equal">#&nbsp;artifacts&nbsp;being&nbsp;intoduced&nbsp;that&nbsp;degraded&nbsp;the&nbsp;image&nbsp;display</td><td class="lineNumber">35</td><td class="equal">#&nbsp;artifacts&nbsp;being&nbsp;intoduced&nbsp;that&nbsp;degraded&nbsp;the&nbsp;image&nbsp;display</td>
+      </tr>
+      <tr>
+<td class="lineNumber">36</td><td class="equal">#TODO&nbsp;educate&nbsp;self&nbsp;on&nbsp;why&nbsp;convert&nbsp;did&nbsp;not&nbsp;work&nbsp;as&nbsp;expected</td><td class="lineNumber">36</td><td class="equal">#TODO&nbsp;educate&nbsp;self&nbsp;on&nbsp;why&nbsp;convert&nbsp;did&nbsp;not&nbsp;work&nbsp;as&nbsp;expected</td>
+      </tr>
+      <tr>
+<td class="lineNumber">37</td><td class="equal">screen&nbsp;=&nbsp;pygame.display.set_mode([WIDTH,&nbsp;HEIGHT])</td><td class="lineNumber">37</td><td class="equal">screen&nbsp;=&nbsp;pygame.display.set_mode([WIDTH,&nbsp;HEIGHT])</td>
+      </tr>
+      <tr>
+<td class="lineNumber">38</td><td class="equal"></td><td class="lineNumber">38</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">39</td><td class="equal">#&nbsp;load&nbsp;the&nbsp;sound&nbsp;files</td><td class="lineNumber">39</td><td class="equal">#&nbsp;load&nbsp;the&nbsp;sound&nbsp;files</td>
+      </tr>
+      <tr>
+<td class="lineNumber">40</td><td class="equal">b_sound&nbsp;=&nbsp;pygame.mixer.Sound('soundtrack.wav')</td><td class="lineNumber">40</td><td class="equal">b_sound&nbsp;=&nbsp;pygame.mixer.Sound('soundtrack.wav')</td>
+      </tr>
+      <tr>
+<td class="lineNumber">41</td><td class="equal">t_sound&nbsp;=&nbsp;pygame.mixer.Sound('thrust.wav')</td><td class="lineNumber">41</td><td class="equal">t_sound&nbsp;=&nbsp;pygame.mixer.Sound('thrust.wav')</td>
+      </tr>
+      <tr>
+<td class="lineNumber">42</td><td class="equal">e_sound&nbsp;=&nbsp;pygame.mixer.Sound('explosion.wav')</td><td class="lineNumber">42</td><td class="equal">e_sound&nbsp;=&nbsp;pygame.mixer.Sound('explosion.wav')</td>
+      </tr>
+      <tr>
+<td class="lineNumber">43</td><td class="equal">m_sound&nbsp;=&nbsp;pygame.mixer.Sound('missile.wav')</td><td class="lineNumber">43</td><td class="equal">m_sound&nbsp;=&nbsp;pygame.mixer.Sound('missile.wav')</td>
+      </tr>
+      <tr>
+<td class="lineNumber">44</td><td class="equal">b_sound.play(-1)&nbsp;&nbsp;#&nbsp;start&nbsp;the&nbsp;background&nbsp;sound</td><td class="lineNumber">44</td><td class="equal">b_sound.play(-1)&nbsp;&nbsp;#&nbsp;start&nbsp;the&nbsp;background&nbsp;sound</td>
+      </tr>
+      <tr>
+<td class="lineNumber">45</td><td class="equal">class&nbsp;ImageInfo:</td><td class="lineNumber">45</td><td class="equal">class&nbsp;ImageInfo:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">46</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;__init__(self,&nbsp;center,&nbsp;size,&nbsp;radius&nbsp;=&nbsp;0,&nbsp;lifespan&nbsp;=&nbsp;None,&nbsp;animated&nbsp;=&nbsp;False):</td><td class="lineNumber">46</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;__init__(self,&nbsp;center,&nbsp;size,&nbsp;radius&nbsp;=&nbsp;0,&nbsp;lifespan&nbsp;=&nbsp;None,&nbsp;animated&nbsp;=&nbsp;False):</td>
+      </tr>
+      <tr>
+<td class="lineNumber">47</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.center&nbsp;=&nbsp;center</td><td class="lineNumber">47</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.center&nbsp;=&nbsp;center</td>
+      </tr>
+      <tr>
+<td class="lineNumber">48</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.size&nbsp;=&nbsp;size</td><td class="lineNumber">48</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.size&nbsp;=&nbsp;size</td>
+      </tr>
+      <tr>
+<td class="lineNumber">49</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.radius&nbsp;=&nbsp;radius</td><td class="lineNumber">49</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.radius&nbsp;=&nbsp;radius</td>
+      </tr>
+      <tr>
+<td class="lineNumber">50</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;lifespan:</td><td class="lineNumber">50</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;lifespan:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">51</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.lifespan&nbsp;=&nbsp;lifespan</td><td class="lineNumber">51</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.lifespan&nbsp;=&nbsp;lifespan</td>
+      </tr>
+      <tr>
+<td class="lineNumber">52</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</td><td class="lineNumber">52</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">53</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.lifespan&nbsp;=&nbsp;float('inf')</td><td class="lineNumber">53</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.lifespan&nbsp;=&nbsp;float('inf')</td>
+      </tr>
+      <tr>
+<td class="lineNumber">54</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.animated&nbsp;=&nbsp;animated</td><td class="lineNumber">54</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.animated&nbsp;=&nbsp;animated</td>
+      </tr>
+      <tr>
+<td class="lineNumber">55</td><td class="equal"></td><td class="lineNumber">55</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">56</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;get_center(self):</td><td class="lineNumber">56</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;get_center(self):</td>
+      </tr>
+      <tr>
+<td class="lineNumber">57</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;self.center</td><td class="lineNumber">57</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;self.center</td>
+      </tr>
+      <tr>
+<td class="lineNumber">58</td><td class="equal"></td><td class="lineNumber">58</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">59</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;get_size(self):</td><td class="lineNumber">59</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;get_size(self):</td>
+      </tr>
+      <tr>
+<td class="lineNumber">60</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;self.size</td><td class="lineNumber">60</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;self.size</td>
+      </tr>
+      <tr>
+<td class="lineNumber">61</td><td class="equal"></td><td class="lineNumber">61</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">62</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;get_radius(self):</td><td class="lineNumber">62</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;get_radius(self):</td>
+      </tr>
+      <tr>
+<td class="lineNumber">63</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;self.radius</td><td class="lineNumber">63</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;self.radius</td>
+      </tr>
+      <tr>
+<td class="lineNumber">64</td><td class="equal"></td><td class="lineNumber">64</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">65</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;get_lifespan(self):</td><td class="lineNumber">65</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;get_lifespan(self):</td>
+      </tr>
+      <tr>
+<td class="lineNumber">66</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;self.lifespan</td><td class="lineNumber">66</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;self.lifespan</td>
+      </tr>
+      <tr>
+<td class="lineNumber">67</td><td class="equal"></td><td class="lineNumber">67</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">68</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;get_animated(self):</td><td class="lineNumber">68</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;get_animated(self):</td>
+      </tr>
+      <tr>
+<td class="lineNumber">69</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;self.animated</td><td class="lineNumber">69</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;self.animated</td>
+      </tr>
+      <tr>
+<td class="lineNumber">70</td><td class="equal"></td><td class="lineNumber">70</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">71</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">71</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">72</td><td class="equal">#&nbsp;art&nbsp;assets&nbsp;created&nbsp;by&nbsp;Kim&nbsp;Lathrop,&nbsp;may&nbsp;be&nbsp;freely&nbsp;re-used&nbsp;in&nbsp;non-commercial&nbsp;projects,&nbsp;please&nbsp;credit&nbsp;Kim</td><td class="lineNumber">72</td><td class="equal">#&nbsp;art&nbsp;assets&nbsp;created&nbsp;by&nbsp;Kim&nbsp;Lathrop,&nbsp;may&nbsp;be&nbsp;freely&nbsp;re-used&nbsp;in&nbsp;non-commercial&nbsp;projects,&nbsp;please&nbsp;credit&nbsp;Kim</td>
+      </tr>
+      <tr>
+<td class="lineNumber">73</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">73</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">74</td><td class="equal">#&nbsp;debris&nbsp;images&nbsp;-&nbsp;debris1_brown.png,&nbsp;debris2_brown.png,&nbsp;debris3_brown.png,&nbsp;debris4_brown.png</td><td class="lineNumber">74</td><td class="equal">#&nbsp;debris&nbsp;images&nbsp;-&nbsp;debris1_brown.png,&nbsp;debris2_brown.png,&nbsp;debris3_brown.png,&nbsp;debris4_brown.png</td>
+      </tr>
+      <tr>
+<td class="lineNumber">75</td><td class="equal">#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;debris1_blue.png,&nbsp;debris2_blue.png,&nbsp;debris3_blue.png,&nbsp;debris4_blue.png,&nbsp;debris_blend.png</td><td class="lineNumber">75</td><td class="equal">#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;debris1_blue.png,&nbsp;debris2_blue.png,&nbsp;debris3_blue.png,&nbsp;debris4_blue.png,&nbsp;debris_blend.png</td>
+      </tr>
+      <tr>
+<td class="lineNumber">76</td><td class="equal">debris_info&nbsp;=&nbsp;ImageInfo([320,&nbsp;240],&nbsp;[640,&nbsp;480])</td><td class="lineNumber">76</td><td class="equal">debris_info&nbsp;=&nbsp;ImageInfo([320,&nbsp;240],&nbsp;[640,&nbsp;480])</td>
+      </tr>
+      <tr>
+<td class="lineNumber">77</td><td class="equal">debris_image&nbsp;=&nbsp;pygame.image.load(&quot;debris2_blue.png&quot;)</td><td class="lineNumber">77</td><td class="equal">debris_image&nbsp;=&nbsp;pygame.image.load(&quot;debris2_blue.png&quot;)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">78</td><td class="equal">debris_image&nbsp;=&nbsp;pygame.transform.scale(debris_image,&nbsp;(WIDTH,&nbsp;HEIGHT))&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;scale&nbsp;up</td><td class="lineNumber">78</td><td class="equal">debris_image&nbsp;=&nbsp;pygame.transform.scale(debris_image,&nbsp;(WIDTH,&nbsp;HEIGHT))&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;scale&nbsp;up</td>
+      </tr>
+      <tr>
+<td class="lineNumber">79</td><td class="equal">#&nbsp;&nbsp;to&nbsp;fit&nbsp;the&nbsp;entire&nbsp;screen</td><td class="lineNumber">79</td><td class="equal">#&nbsp;&nbsp;to&nbsp;fit&nbsp;the&nbsp;entire&nbsp;screen</td>
+      </tr>
+      <tr>
+<td class="lineNumber">80</td><td class="equal">debris_info&nbsp;=&nbsp;ImageInfo([400,&nbsp;300],&nbsp;[800,&nbsp;600])&nbsp;&nbsp;#&nbsp;reset&nbsp;image&nbsp;center&nbsp;and&nbsp;size&nbsp;for</td><td class="lineNumber">80</td><td class="equal">debris_info&nbsp;=&nbsp;ImageInfo([400,&nbsp;300],&nbsp;[800,&nbsp;600])&nbsp;&nbsp;#&nbsp;reset&nbsp;image&nbsp;center&nbsp;and&nbsp;size&nbsp;for</td>
+      </tr>
+      <tr>
+<td class="lineNumber">81</td><td class="equal">#&nbsp;&nbsp;the&nbsp;scaled&nbsp;image</td><td class="lineNumber">81</td><td class="equal">#&nbsp;&nbsp;the&nbsp;scaled&nbsp;image</td>
+      </tr>
+      <tr>
+<td class="lineNumber">82</td><td class="equal">#&nbsp;nebula&nbsp;images&nbsp;-&nbsp;nebula_brown.png,&nbsp;nebula_blue.png</td><td class="lineNumber">82</td><td class="equal">#&nbsp;nebula&nbsp;images&nbsp;-&nbsp;nebula_brown.png,&nbsp;nebula_blue.png</td>
+      </tr>
+      <tr>
+<td class="lineNumber">83</td><td class="equal">nebula_info&nbsp;=&nbsp;ImageInfo([400,&nbsp;300],&nbsp;[800,&nbsp;600])</td><td class="lineNumber">83</td><td class="equal">nebula_info&nbsp;=&nbsp;ImageInfo([400,&nbsp;300],&nbsp;[800,&nbsp;600])</td>
+      </tr>
+      <tr>
+<td class="lineNumber">84</td><td class="equal">nebula_image&nbsp;=&nbsp;pygame.image.load(&quot;nebula_blue.f2014.png&quot;)</td><td class="lineNumber">84</td><td class="equal">nebula_image&nbsp;=&nbsp;pygame.image.load(&quot;nebula_blue.f2014.png&quot;)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">85</td><td class="equal"></td><td class="lineNumber">85</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">86</td><td class="equal">#&nbsp;splash&nbsp;image</td><td class="lineNumber">86</td><td class="equal">#&nbsp;splash&nbsp;image</td>
+      </tr>
+      <tr>
+<td class="lineNumber">87</td><td class="equal">splash_info&nbsp;=&nbsp;ImageInfo([200,&nbsp;150],&nbsp;[400,&nbsp;300])</td><td class="lineNumber">87</td><td class="equal">splash_info&nbsp;=&nbsp;ImageInfo([200,&nbsp;150],&nbsp;[400,&nbsp;300])</td>
+      </tr>
+      <tr>
+<td class="lineNumber">88</td><td class="equal">splash_image&nbsp;=&nbsp;pygame.image.load(&quot;splash.png&quot;)</td><td class="lineNumber">88</td><td class="equal">splash_image&nbsp;=&nbsp;pygame.image.load(&quot;splash.png&quot;)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">89</td><td class="equal"></td><td class="lineNumber">89</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">90</td><td class="equal">#&nbsp;ship&nbsp;image</td><td class="lineNumber">90</td><td class="equal">#&nbsp;ship&nbsp;image</td>
+      </tr>
+      <tr>
+<td class="lineNumber">91</td><td class="equal">ship_info&nbsp;=&nbsp;ImageInfo([45,&nbsp;45],&nbsp;[90,&nbsp;90],&nbsp;35)</td><td class="lineNumber">91</td><td class="equal">ship_info&nbsp;=&nbsp;ImageInfo([45,&nbsp;45],&nbsp;[90,&nbsp;90],&nbsp;35)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">92</td><td class="equal">ship_image&nbsp;=&nbsp;pygame.image.load(&quot;double_ship.png&quot;)</td><td class="lineNumber">92</td><td class="equal">ship_image&nbsp;=&nbsp;pygame.image.load(&quot;double_ship.png&quot;)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">93</td><td class="equal"></td><td class="lineNumber">93</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">94</td><td class="equal">#&nbsp;missile&nbsp;image&nbsp;-&nbsp;shot1.png,&nbsp;shot2.png,&nbsp;shot3.png</td><td class="lineNumber">94</td><td class="equal">#&nbsp;missile&nbsp;image&nbsp;-&nbsp;shot1.png,&nbsp;shot2.png,&nbsp;shot3.png</td>
+      </tr>
+      <tr>
+<td class="lineNumber">95</td><td class="equal">missile_info&nbsp;=&nbsp;ImageInfo([5,5],&nbsp;[10,&nbsp;10],&nbsp;3,&nbsp;50)</td><td class="lineNumber">95</td><td class="equal">missile_info&nbsp;=&nbsp;ImageInfo([5,5],&nbsp;[10,&nbsp;10],&nbsp;3,&nbsp;50)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">96</td><td class="equal">missile_image&nbsp;=&nbsp;pygame.image.load(&quot;shot2.png&quot;)</td><td class="lineNumber">96</td><td class="equal">missile_image&nbsp;=&nbsp;pygame.image.load(&quot;shot2.png&quot;)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">97</td><td class="equal"></td><td class="lineNumber">97</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">98</td><td class="equal">#&nbsp;asteroid&nbsp;images&nbsp;-&nbsp;asteroid_blue.png,&nbsp;asteroid_brown.png,&nbsp;asteroid_blend.png</td><td class="lineNumber">98</td><td class="equal">#&nbsp;asteroid&nbsp;images&nbsp;-&nbsp;asteroid_blue.png,&nbsp;asteroid_brown.png,&nbsp;asteroid_blend.png</td>
+      </tr>
+      <tr>
+<td class="lineNumber">99</td><td class="equal">asteroid_info&nbsp;=&nbsp;ImageInfo([45,&nbsp;45],&nbsp;[90,&nbsp;90],&nbsp;40)</td><td class="lineNumber">99</td><td class="equal">asteroid_info&nbsp;=&nbsp;ImageInfo([45,&nbsp;45],&nbsp;[90,&nbsp;90],&nbsp;40)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">100</td><td class="equal">asteroid_image&nbsp;=&nbsp;pygame.image.load(&quot;asteroid_blue.png&quot;)</td><td class="lineNumber">100</td><td class="equal">asteroid_image&nbsp;=&nbsp;pygame.image.load(&quot;asteroid_blue.png&quot;)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">101</td><td class="equal"></td><td class="lineNumber">101</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">102</td><td class="equal">#&nbsp;animated&nbsp;explosion&nbsp;-&nbsp;explosion_orange.png,&nbsp;explosion_blue.png,&nbsp;explosion_blue2.png,&nbsp;explosion_alpha.png</td><td class="lineNumber">102</td><td class="equal">#&nbsp;animated&nbsp;explosion&nbsp;-&nbsp;explosion_orange.png,&nbsp;explosion_blue.png,&nbsp;explosion_blue2.png,&nbsp;explosion_alpha.png</td>
+      </tr>
+      <tr>
+<td class="lineNumber">103</td><td class="equal">explosion_info&nbsp;=&nbsp;ImageInfo([64,&nbsp;64],&nbsp;[128,&nbsp;128],&nbsp;17,&nbsp;24,&nbsp;True)</td><td class="lineNumber">103</td><td class="equal">explosion_info&nbsp;=&nbsp;ImageInfo([64,&nbsp;64],&nbsp;[128,&nbsp;128],&nbsp;17,&nbsp;24,&nbsp;True)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">104</td><td class="equal">explosion_image&nbsp;=&nbsp;pygame.image.load(&quot;explosion_alpha.png&quot;)</td><td class="lineNumber">104</td><td class="equal">explosion_image&nbsp;=&nbsp;pygame.image.load(&quot;explosion_alpha.png&quot;)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">105</td><td class="equal"></td><td class="lineNumber">105</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">106</td><td class="equal">ship_image.set_colorkey(WHITE)&nbsp;&nbsp;#&nbsp;make&nbsp;background&nbsp;areas&nbsp;of&nbsp;image&nbsp;transparent</td><td class="lineNumber">106</td><td class="equal">ship_image.set_colorkey(WHITE)&nbsp;&nbsp;#&nbsp;make&nbsp;background&nbsp;areas&nbsp;of&nbsp;image&nbsp;transparent</td>
+      </tr>
+      <tr>
+<td class="lineNumber">107</td><td class="equal"></td><td class="lineNumber">107</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">108</td><td class="equal">#&nbsp;sound&nbsp;assets&nbsp;purchased&nbsp;from&nbsp;sounddogs.com,&nbsp;please&nbsp;do&nbsp;not&nbsp;redistribute</td><td class="lineNumber">108</td><td class="equal">#&nbsp;sound&nbsp;assets&nbsp;purchased&nbsp;from&nbsp;sounddogs.com,&nbsp;please&nbsp;do&nbsp;not&nbsp;redistribute</td>
+      </tr>
+      <tr>
+<td class="lineNumber">109</td><td class="equal">#soundtrack&nbsp;=&nbsp;pygame.mixer.Sound(&quot;soundtrack.mp3&quot;)</td><td class="lineNumber">109</td><td class="equal">#soundtrack&nbsp;=&nbsp;pygame.mixer.Sound(&quot;soundtrack.mp3&quot;)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">110</td><td class="equal">missile_sound&nbsp;=&nbsp;pygame.mixer.Sound(&quot;missile.wav&quot;)</td><td class="lineNumber">110</td><td class="equal">missile_sound&nbsp;=&nbsp;pygame.mixer.Sound(&quot;missile.wav&quot;)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">111</td><td class="equal">#TODO&nbsp;may&nbsp;have&nbsp;to&nbsp;use&nbsp;Sound.set_volume&nbsp;method</td><td class="lineNumber">111</td><td class="equal">#TODO&nbsp;may&nbsp;have&nbsp;to&nbsp;use&nbsp;Sound.set_volume&nbsp;method</td>
+      </tr>
+      <tr>
+<td class="lineNumber">112</td><td class="equal">#missile_sound.set_volume(.5)</td><td class="lineNumber">112</td><td class="equal">#missile_sound.set_volume(.5)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">113</td><td class="equal">#TODO&nbsp;have&nbsp;to&nbsp;convert&nbsp;all&nbsp;sound&nbsp;files&nbsp;to&nbsp;.wav</td><td class="lineNumber">113</td><td class="equal">#TODO&nbsp;have&nbsp;to&nbsp;convert&nbsp;all&nbsp;sound&nbsp;files&nbsp;to&nbsp;.wav</td>
+      </tr>
+      <tr>
+<td class="lineNumber">114</td><td class="equal">#ship_thrust_sound&nbsp;=&nbsp;pygame.mixer.Sound(&quot;thrust.mp3&quot;)</td><td class="lineNumber">114</td><td class="equal">#ship_thrust_sound&nbsp;=&nbsp;pygame.mixer.Sound(&quot;thrust.mp3&quot;)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">115</td><td class="equal">#explosion_sound&nbsp;=&nbsp;pygame.mixer.Sound(&quot;explosion.mp3&quot;)</td><td class="lineNumber">115</td><td class="equal">#explosion_sound&nbsp;=&nbsp;pygame.mixer.Sound(&quot;explosion.mp3&quot;)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">116</td><td class="equal"></td><td class="lineNumber">116</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">117</td><td class="equal">#&nbsp;helper&nbsp;functions&nbsp;to&nbsp;handle&nbsp;transformations</td><td class="lineNumber">117</td><td class="equal">#&nbsp;helper&nbsp;functions&nbsp;to&nbsp;handle&nbsp;transformations</td>
+      </tr>
+      <tr>
+<td class="lineNumber">118</td><td class="equal">def&nbsp;angle_to_vector(ang):</td><td class="lineNumber">118</td><td class="equal">def&nbsp;angle_to_vector(ang):</td>
+      </tr>
+      <tr>
+<td class="lineNumber">119</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[math.cos(ang),&nbsp;math.sin(ang)]</td><td class="lineNumber">119</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[math.cos(ang),&nbsp;math.sin(ang)]</td>
+      </tr>
+      <tr>
+<td class="lineNumber">120</td><td class="equal"></td><td class="lineNumber">120</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">121</td><td class="equal">def&nbsp;dist(p,q):</td><td class="lineNumber">121</td><td class="equal">def&nbsp;dist(p,q):</td>
+      </tr>
+      <tr>
+<td class="lineNumber">122</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;math.sqrt((p[0]&nbsp;-&nbsp;q[0])&nbsp;**&nbsp;2+(p[1]&nbsp;-&nbsp;q[1])&nbsp;**&nbsp;2)</td><td class="lineNumber">122</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;math.sqrt((p[0]&nbsp;-&nbsp;q[0])&nbsp;**&nbsp;2+(p[1]&nbsp;-&nbsp;q[1])&nbsp;**&nbsp;2)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">123</td><td class="equal"></td><td class="lineNumber">123</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">124</td><td class="equal"></td><td class="lineNumber">124</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">125</td><td class="equal">#&nbsp;Ship&nbsp;class</td><td class="lineNumber">125</td><td class="equal">#&nbsp;Ship&nbsp;class</td>
+      </tr>
+      <tr>
+<td class="lineNumber">126</td><td class="equal">class&nbsp;Ship:</td><td class="lineNumber">126</td><td class="equal">class&nbsp;Ship:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">127</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;__init__(self,&nbsp;pos,&nbsp;vel,&nbsp;angle,&nbsp;image,&nbsp;info):</td><td class="lineNumber">127</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;__init__(self,&nbsp;pos,&nbsp;vel,&nbsp;angle,&nbsp;image,&nbsp;info):</td>
+      </tr>
+      <tr>
+<td class="lineNumber">128</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pos&nbsp;=&nbsp;[pos[0],pos[1]]</td><td class="lineNumber">128</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pos&nbsp;=&nbsp;[pos[0],pos[1]]</td>
+      </tr>
+      <tr>
+<td class="lineNumber">129</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.vel&nbsp;=&nbsp;[vel[0],vel[1]]</td><td class="lineNumber">129</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.vel&nbsp;=&nbsp;[vel[0],vel[1]]</td>
+      </tr>
+      <tr>
+<td class="lineNumber">130</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.thrust&nbsp;=&nbsp;False</td><td class="lineNumber">130</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.thrust&nbsp;=&nbsp;False</td>
+      </tr>
+      <tr>
+<td class="lineNumber">131</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.angle&nbsp;=&nbsp;angle</td><td class="lineNumber">131</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.angle&nbsp;=&nbsp;angle</td>
+      </tr>
+      <tr>
+<td class="lineNumber">132</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.angle_vel&nbsp;=&nbsp;0.5</td><td class="lineNumber">132</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.angle_vel&nbsp;=&nbsp;0.5</td>
+      </tr>
+      <tr>
+<td class="lineNumber">133</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.image&nbsp;=&nbsp;image</td><td class="lineNumber">133</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.image&nbsp;=&nbsp;image</td>
+      </tr>
+      <tr>
+<td class="lineNumber">134</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.image_center&nbsp;=&nbsp;info.get_center()</td><td class="lineNumber">134</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.image_center&nbsp;=&nbsp;info.get_center()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">135</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.image_size&nbsp;=&nbsp;info.get_size()</td><td class="lineNumber">135</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.image_size&nbsp;=&nbsp;info.get_size()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">136</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.radius&nbsp;=&nbsp;info.get_radius()</td><td class="lineNumber">136</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.radius&nbsp;=&nbsp;info.get_radius()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">137</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;this&nbsp;variables&nbsp;will&nbsp;be&nbsp;updated&nbsp;as&nbsp;result&nbsp;of&nbsp;rotating&nbsp;the&nbsp;image</td><td class="lineNumber">137</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;this&nbsp;variables&nbsp;will&nbsp;be&nbsp;updated&nbsp;as&nbsp;result&nbsp;of&nbsp;rotating&nbsp;the&nbsp;image</td>
+      </tr>
+      <tr>
+<td class="lineNumber">138</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.csize&nbsp;=&nbsp;self.image_size&nbsp;&nbsp;#&nbsp;initialize&nbsp;to&nbsp;original&nbsp;image&nbsp;rect&nbsp;size</td><td class="lineNumber">138</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.csize&nbsp;=&nbsp;self.image_size&nbsp;&nbsp;#&nbsp;initialize&nbsp;to&nbsp;original&nbsp;image&nbsp;rect&nbsp;size</td>
+      </tr>
+      <tr>
+<td class="lineNumber">139</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">139</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">140</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;draw(self,canvas):</td><td class="lineNumber">140</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;draw(self,canvas):</td>
+      </tr>
+      <tr>
+<td class="lineNumber">141</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#self.pos[0]&nbsp;=&nbsp;int(self.pos[0])</td><td class="lineNumber">141</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#self.pos[0]&nbsp;=&nbsp;int(self.pos[0])</td>
+      </tr>
+      <tr>
+<td class="lineNumber">142</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#self.pos[1]&nbsp;=&nbsp;int(self.pos[1])</td><td class="lineNumber">142</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#self.pos[1]&nbsp;=&nbsp;int(self.pos[1])</td>
+      </tr>
+      <tr>
+<td class="lineNumber">143</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.radius&nbsp;=&nbsp;int(self.radius)</td><td class="lineNumber">143</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.radius&nbsp;=&nbsp;int(self.radius)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">144</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('self.pos&nbsp;(draw&nbsp;rtn):&nbsp;',&nbsp;self.pos)</td><td class="lineNumber">144</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('self.pos&nbsp;(draw&nbsp;rtn):&nbsp;',&nbsp;self.pos)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">145</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">145</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">146</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;not&nbsp;self.thrust:</td><td class="lineNumber">146</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;not&nbsp;self.thrust:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">147</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ship_image.set_clip(pygame.Rect(0,&nbsp;0,&nbsp;90,&nbsp;90))</td><td class="lineNumber">147</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ship_image.set_clip(pygame.Rect(0,&nbsp;0,&nbsp;90,&nbsp;90))</td>
+      </tr>
+      <tr>
+<td class="lineNumber">148</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t_sound.stop()</td><td class="lineNumber">148</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t_sound.stop()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">149</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</td><td class="lineNumber">149</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">150</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ship_image.set_clip(pygame.Rect(90,&nbsp;0,&nbsp;90,&nbsp;90))</td><td class="lineNumber">150</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ship_image.set_clip(pygame.Rect(90,&nbsp;0,&nbsp;90,&nbsp;90))</td>
+      </tr>
+      <tr>
+<td class="lineNumber">151</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t_sound.play(-1)</td><td class="lineNumber">151</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t_sound.play(-1)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">152</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">152</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">153</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ship_image_cur&nbsp;=&nbsp;ship_image.subsurface(ship_image.get_clip())</td><td class="lineNumber">153</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ship_image_cur&nbsp;=&nbsp;ship_image.subsurface(ship_image.get_clip())</td>
+      </tr>
+      <tr>
+<td class="lineNumber">154</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ship_image_now&nbsp;=&nbsp;pygame.transform.rotozoom(ship_image_cur,&nbsp;self.angle,&nbsp;1)</td><td class="lineNumber">154</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ship_image_now&nbsp;=&nbsp;pygame.transform.rotozoom(ship_image_cur,&nbsp;self.angle,&nbsp;1)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">155</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('self.angle:&nbsp;',&nbsp;self.angle)</td><td class="lineNumber">155</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('self.angle:&nbsp;',&nbsp;self.angle)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">156</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ship_image_now_r&nbsp;=&nbsp;ship_image_now.get_rect()</td><td class="lineNumber">156</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ship_image_now_r&nbsp;=&nbsp;ship_image_now.get_rect()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">157</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('&nbsp;ship_image_now_rect[0],&nbsp;[1],&nbsp;[2],&nbsp;[3]:&nbsp;',&nbsp;ship_image_now_r[0],&nbsp;ship_image_now_r[1],</td><td class="lineNumber">157</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('&nbsp;ship_image_now_rect[0],&nbsp;[1],&nbsp;[2],&nbsp;[3]:&nbsp;',&nbsp;ship_image_now_r[0],&nbsp;ship_image_now_r[1],</td>
+      </tr>
+      <tr>
+<td class="lineNumber">158</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ship_image_now_r[2],&nbsp;ship_image_now_r[3])</td><td class="lineNumber">158</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ship_image_now_r[2],&nbsp;ship_image_now_r[3])</td>
+      </tr>
+      <tr>
+<td class="lineNumber">159</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('self.pos[0],&nbsp;[1]:&nbsp;',&nbsp;self.pos[0],&nbsp;self.pos[1])</td><td class="lineNumber">159</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('self.pos[0],&nbsp;[1]:&nbsp;',&nbsp;self.pos[0],&nbsp;self.pos[1])</td>
+      </tr>
+      <tr>
+<td class="lineNumber">160</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">160</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">161</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;update&nbsp;the&nbsp;current&nbsp;size&nbsp;of&nbsp;the&nbsp;image&nbsp;for&nbsp;missile&nbsp;handler</td><td class="lineNumber">161</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;update&nbsp;the&nbsp;current&nbsp;size&nbsp;of&nbsp;the&nbsp;image&nbsp;for&nbsp;missile&nbsp;handler</td>
+      </tr>
+      <tr>
+<td class="lineNumber">162</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.csize&nbsp;=&nbsp;[ship_image_now_r[2],&nbsp;ship_image_now_r[3]]</td><td class="lineNumber">162</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.csize&nbsp;=&nbsp;[ship_image_now_r[2],&nbsp;ship_image_now_r[3]]</td>
+      </tr>
+      <tr>
+<td class="lineNumber">163</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">163</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">164</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delta_x&nbsp;=&nbsp;ship_image_now_r[2]&nbsp;//&nbsp;2</td><td class="lineNumber">164</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delta_x&nbsp;=&nbsp;ship_image_now_r[2]&nbsp;//&nbsp;2</td>
+      </tr>
+      <tr>
+<td class="lineNumber">165</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delta_y&nbsp;=&nbsp;ship_image_now_r[3]&nbsp;//&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">165</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delta_y&nbsp;=&nbsp;ship_image_now_r[3]&nbsp;//&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">166</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;canvas.blit(ship_image_now,&nbsp;(int(self.pos[0])&nbsp;-&nbsp;delta_x,&nbsp;int(self.pos[1])&nbsp;-&nbsp;delta_y,</td><td class="lineNumber">166</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;canvas.blit(ship_image_now,&nbsp;(int(self.pos[0])&nbsp;-&nbsp;delta_x,&nbsp;int(self.pos[1])&nbsp;-&nbsp;delta_y,</td>
+      </tr>
+      <tr>
+<td class="lineNumber">167</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ship_image_now_r[2],&nbsp;ship_image_now_r[3]))</td><td class="lineNumber">167</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ship_image_now_r[2],&nbsp;ship_image_now_r[3]))</td>
+      </tr>
+      <tr>
+<td class="lineNumber">168</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">168</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">169</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;get_angle(self):</td><td class="lineNumber">169</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;get_angle(self):</td>
+      </tr>
+      <tr>
+<td class="lineNumber">170</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;self.angle</td><td class="lineNumber">170</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;self.angle</td>
+      </tr>
+      <tr>
+<td class="lineNumber">171</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">171</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">172</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;get_csize(self):</td><td class="lineNumber">172</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;get_csize(self):</td>
+      </tr>
+      <tr>
+<td class="lineNumber">173</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;self.csize</td><td class="lineNumber">173</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;self.csize</td>
+      </tr>
+      <tr>
+<td class="lineNumber">174</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">174</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">175</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;get_pos(self):</td><td class="lineNumber">175</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;get_pos(self):</td>
+      </tr>
+      <tr>
+<td class="lineNumber">176</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;self.pos</td><td class="lineNumber">176</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;self.pos</td>
+      </tr>
+      <tr>
+<td class="lineNumber">177</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">177</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">178</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;update(self):</td><td class="lineNumber">178</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;update(self):</td>
+      </tr>
+      <tr>
+<td class="lineNumber">179</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;position&nbsp;update</td><td class="lineNumber">179</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;position&nbsp;update</td>
+      </tr>
+      <tr>
+<td class="lineNumber">180</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pos[0]&nbsp;=&nbsp;self.pos[0]&nbsp;+&nbsp;self.vel[0]</td><td class="lineNumber">180</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pos[0]&nbsp;=&nbsp;self.pos[0]&nbsp;+&nbsp;self.vel[0]</td>
+      </tr>
+      <tr>
+<td class="lineNumber">181</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pos[1]&nbsp;=&nbsp;self.pos[1]&nbsp;+&nbsp;self.vel[1]</td><td class="lineNumber">181</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pos[1]&nbsp;=&nbsp;self.pos[1]&nbsp;+&nbsp;self.vel[1]</td>
+      </tr>
+      <tr>
+<td class="lineNumber">182</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">182</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">183</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;check&nbsp;/&nbsp;adjust&nbsp;for&nbsp;boundry&nbsp;conditions</td><td class="lineNumber">183</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;check&nbsp;/&nbsp;adjust&nbsp;for&nbsp;boundry&nbsp;conditions</td>
+      </tr>
+      <tr>
+<td class="lineNumber">184</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;self.pos[0]&nbsp;&lt;&nbsp;0:</td><td class="lineNumber">184</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;self.pos[0]&nbsp;&lt;&nbsp;0:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">185</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pos[0]&nbsp;=&nbsp;WIDTH</td><td class="lineNumber">185</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pos[0]&nbsp;=&nbsp;WIDTH</td>
+      </tr>
+      <tr>
+<td class="lineNumber">186</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;self.pos[0]&nbsp;&gt;&nbsp;WIDTH:</td><td class="lineNumber">186</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;self.pos[0]&nbsp;&gt;&nbsp;WIDTH:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">187</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pos[0]&nbsp;=&nbsp;0</td><td class="lineNumber">187</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pos[0]&nbsp;=&nbsp;0</td>
+      </tr>
+      <tr>
+<td class="lineNumber">188</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;self.pos[1]&nbsp;&lt;&nbsp;0:</td><td class="lineNumber">188</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;self.pos[1]&nbsp;&lt;&nbsp;0:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">189</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pos[1]&nbsp;=&nbsp;HEIGHT</td><td class="lineNumber">189</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pos[1]&nbsp;=&nbsp;HEIGHT</td>
+      </tr>
+      <tr>
+<td class="lineNumber">190</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;self.pos[1]&nbsp;&gt;&nbsp;HEIGHT:</td><td class="lineNumber">190</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;self.pos[1]&nbsp;&gt;&nbsp;HEIGHT:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">191</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pos[1]&nbsp;=&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">191</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pos[1]&nbsp;=&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">192</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">192</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">193</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('self.pos&nbsp;(center):&nbsp;',&nbsp;self.pos)</td><td class="lineNumber">193</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('self.pos&nbsp;(center):&nbsp;',&nbsp;self.pos)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">194</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;friction&nbsp;update</td><td class="lineNumber">194</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;friction&nbsp;update</td>
+      </tr>
+      <tr>
+<td class="lineNumber">195</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FRIC&nbsp;=&nbsp;.025</td><td class="lineNumber">195</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FRIC&nbsp;=&nbsp;.025</td>
+      </tr>
+      <tr>
+<td class="lineNumber">196</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.vel[0]&nbsp;=&nbsp;(self.vel[0]&nbsp;*&nbsp;(1&nbsp;-&nbsp;FRIC))</td><td class="lineNumber">196</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.vel[0]&nbsp;=&nbsp;(self.vel[0]&nbsp;*&nbsp;(1&nbsp;-&nbsp;FRIC))</td>
+      </tr>
+      <tr>
+<td class="lineNumber">197</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.vel[1]&nbsp;=&nbsp;(self.vel[1]&nbsp;*&nbsp;(1&nbsp;-&nbsp;FRIC))</td><td class="lineNumber">197</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.vel[1]&nbsp;=&nbsp;(self.vel[1]&nbsp;*&nbsp;(1&nbsp;-&nbsp;FRIC))</td>
+      </tr>
+      <tr>
+<td class="lineNumber">198</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('self.vel:&nbsp;',&nbsp;self.vel)</td><td class="lineNumber">198</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('self.vel:&nbsp;',&nbsp;self.vel)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">199</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">199</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">200</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;thrust&nbsp;update</td><td class="lineNumber">200</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;thrust&nbsp;update</td>
+      </tr>
+      <tr>
+<td class="lineNumber">201</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;convert&nbsp;self.angle&nbsp;to&nbsp;radians&nbsp;for&nbsp;this&nbsp;calc</td><td class="lineNumber">201</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;convert&nbsp;self.angle&nbsp;to&nbsp;radians&nbsp;for&nbsp;this&nbsp;calc</td>
+      </tr>
+      <tr>
+<td class="lineNumber">202</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;angle_rad&nbsp;=&nbsp;(self.angle&nbsp;*&nbsp;3.14159)&nbsp;/&nbsp;180</td><td class="lineNumber">202</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;angle_rad&nbsp;=&nbsp;(self.angle&nbsp;*&nbsp;3.14159)&nbsp;/&nbsp;180</td>
+      </tr>
+      <tr>
+<td class="lineNumber">203</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forward&nbsp;=&nbsp;[math.cos(angle_rad),&nbsp;-math.sin(angle_rad)]</td><td class="lineNumber">203</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forward&nbsp;=&nbsp;[math.cos(angle_rad),&nbsp;-math.sin(angle_rad)]</td>
+      </tr>
+      <tr>
+<td class="lineNumber">204</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('self.angle:&nbsp;',&nbsp;self.angle)</td><td class="lineNumber">204</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('self.angle:&nbsp;',&nbsp;self.angle)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">205</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;self.thrust:</td><td class="lineNumber">205</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;self.thrust:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">206</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.vel[0]&nbsp;=&nbsp;self.vel[0]&nbsp;+&nbsp;forward[0]&nbsp;*&nbsp;.1</td><td class="lineNumber">206</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.vel[0]&nbsp;=&nbsp;self.vel[0]&nbsp;+&nbsp;forward[0]&nbsp;*&nbsp;.1</td>
+      </tr>
+      <tr>
+<td class="lineNumber">207</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.vel[1]&nbsp;=&nbsp;self.vel[1]&nbsp;+&nbsp;forward[1]&nbsp;*&nbsp;.1</td><td class="lineNumber">207</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.vel[1]&nbsp;=&nbsp;self.vel[1]&nbsp;+&nbsp;forward[1]&nbsp;*&nbsp;.1</td>
+      </tr>
+      <tr>
+<td class="lineNumber">208</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('self.vel&nbsp;',&nbsp;self.vel,&nbsp;'&nbsp;forward:&nbsp;',&nbsp;forward)</td><td class="lineNumber">208</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('self.vel&nbsp;',&nbsp;self.vel,&nbsp;'&nbsp;forward:&nbsp;',&nbsp;forward)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">209</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('rotate_cclockwise:&nbsp;',&nbsp;rotate_cclockwise)</td><td class="lineNumber">209</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('rotate_cclockwise:&nbsp;',&nbsp;rotate_cclockwise)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">210</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;rotate_cclockwise:</td><td class="lineNumber">210</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;rotate_cclockwise:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">211</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.angle&nbsp;=&nbsp;self.angle&nbsp;+&nbsp;self.angle_vel</td><td class="lineNumber">211</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.angle&nbsp;=&nbsp;self.angle&nbsp;+&nbsp;self.angle_vel</td>
+      </tr>
+      <tr>
+<td class="lineNumber">212</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('self.angle&nbsp;(counterclockwise):&nbsp;',&nbsp;self.angle)</td><td class="lineNumber">212</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('self.angle&nbsp;(counterclockwise):&nbsp;',&nbsp;self.angle)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">213</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;rotate_clockwise:</td><td class="lineNumber">213</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;rotate_clockwise:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">214</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.angle&nbsp;=&nbsp;self.angle&nbsp;-&nbsp;self.angle_vel</td><td class="lineNumber">214</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.angle&nbsp;=&nbsp;self.angle&nbsp;-&nbsp;self.angle_vel</td>
+      </tr>
+      <tr>
+<td class="lineNumber">215</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('self.angle&nbsp;(clockwise):&nbsp;',&nbsp;self.angle)</td><td class="lineNumber">215</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('self.angle&nbsp;(clockwise):&nbsp;',&nbsp;self.angle)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">216</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">216</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">217</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">217</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">218</td><td class="equal">#&nbsp;Sprite&nbsp;class</td><td class="lineNumber">218</td><td class="equal">#&nbsp;Sprite&nbsp;class</td>
+      </tr>
+      <tr>
+<td class="lineNumber">219</td><td class="equal">class&nbsp;Sprite:</td><td class="lineNumber">219</td><td class="equal">class&nbsp;Sprite:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">220</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;__init__(self,&nbsp;pos,&nbsp;vel,&nbsp;ang,&nbsp;ang_vel,&nbsp;image,&nbsp;info,&nbsp;sound&nbsp;=&nbsp;None):</td><td class="lineNumber">220</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;__init__(self,&nbsp;pos,&nbsp;vel,&nbsp;ang,&nbsp;ang_vel,&nbsp;image,&nbsp;info,&nbsp;sound&nbsp;=&nbsp;None):</td>
+      </tr>
+      <tr>
+<td class="lineNumber">221</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pos&nbsp;=&nbsp;[pos[0],pos[1]]</td><td class="lineNumber">221</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pos&nbsp;=&nbsp;[pos[0],pos[1]]</td>
+      </tr>
+      <tr>
+<td class="lineNumber">222</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.vel&nbsp;=&nbsp;[vel[0],vel[1]]</td><td class="lineNumber">222</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.vel&nbsp;=&nbsp;[vel[0],vel[1]]</td>
+      </tr>
+      <tr>
+<td class="lineNumber">223</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.angle&nbsp;=&nbsp;ang</td><td class="lineNumber">223</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.angle&nbsp;=&nbsp;ang</td>
+      </tr>
+      <tr>
+<td class="lineNumber">224</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.angle_vel&nbsp;=&nbsp;ang_vel</td><td class="lineNumber">224</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.angle_vel&nbsp;=&nbsp;ang_vel</td>
+      </tr>
+      <tr>
+<td class="lineNumber">225</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.image&nbsp;=&nbsp;image</td><td class="lineNumber">225</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.image&nbsp;=&nbsp;image</td>
+      </tr>
+      <tr>
+<td class="lineNumber">226</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.image_center&nbsp;=&nbsp;info.get_center()</td><td class="lineNumber">226</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.image_center&nbsp;=&nbsp;info.get_center()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">227</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.image_size&nbsp;=&nbsp;info.get_size()</td><td class="lineNumber">227</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.image_size&nbsp;=&nbsp;info.get_size()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">228</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.radius&nbsp;=&nbsp;info.get_radius()</td><td class="lineNumber">228</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.radius&nbsp;=&nbsp;info.get_radius()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">229</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.lifespan&nbsp;=&nbsp;info.get_lifespan()</td><td class="lineNumber">229</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.lifespan&nbsp;=&nbsp;info.get_lifespan()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">230</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.animated&nbsp;=&nbsp;info.get_animated()</td><td class="lineNumber">230</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.animated&nbsp;=&nbsp;info.get_animated()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">231</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.age&nbsp;=&nbsp;0</td><td class="lineNumber">231</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.age&nbsp;=&nbsp;0</td>
+      </tr>
+      <tr>
+<td class="lineNumber">232</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#TODO&nbsp;put&nbsp;appropriate&nbsp;pygame&nbsp;sound&nbsp;functions/methods&nbsp;in&nbsp;here</td><td class="lineNumber">232</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#TODO&nbsp;put&nbsp;appropriate&nbsp;pygame&nbsp;sound&nbsp;functions/methods&nbsp;in&nbsp;here</td>
+      </tr>
+      <tr>
+<td class="lineNumber">233</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#if&nbsp;sound:</td><td class="lineNumber">233</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#if&nbsp;sound:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">234</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#sound.rewind()</td><td class="lineNumber">234</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#sound.rewind()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">235</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#sound.play()</td><td class="lineNumber">235</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#sound.play()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">236</td><td class="equal">&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">236</td><td class="equal">&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">237</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;draw(self,&nbsp;canvas):</td><td class="lineNumber">237</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;draw(self,&nbsp;canvas):</td>
+      </tr>
+      <tr>
+<td class="lineNumber">238</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#self.pos[0]&nbsp;=&nbsp;int(self.pos[0])</td><td class="lineNumber">238</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#self.pos[0]&nbsp;=&nbsp;int(self.pos[0])</td>
+      </tr>
+      <tr>
+<td class="lineNumber">239</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#self.pos[1]&nbsp;=&nbsp;int(self.pos[1])</td><td class="lineNumber">239</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#self.pos[1]&nbsp;=&nbsp;int(self.pos[1])</td>
+      </tr>
+      <tr>
+<td class="lineNumber">240</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.radius&nbsp;=&nbsp;int(self.radius)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">240</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.radius&nbsp;=&nbsp;int(self.radius)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">241</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#pygame.draw.circle(canvas,&nbsp;RED,&nbsp;self.pos,&nbsp;self.radius,&nbsp;0)</td><td class="lineNumber">241</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#pygame.draw.circle(canvas,&nbsp;RED,&nbsp;self.pos,&nbsp;self.radius,&nbsp;0)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">242</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#canvas.blit(self.image,&nbsp;(self.pos,&nbsp;self.image_size))</td><td class="lineNumber">242</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#canvas.blit(self.image,&nbsp;(self.pos,&nbsp;self.image_size))</td>
+      </tr>
+      <tr>
+<td class="lineNumber">243</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image_now&nbsp;=&nbsp;pygame.transform.rotozoom(self.image,&nbsp;self.angle,&nbsp;1)</td><td class="lineNumber">243</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image_now&nbsp;=&nbsp;pygame.transform.rotozoom(self.image,&nbsp;self.angle,&nbsp;1)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">244</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nimage&nbsp;=&nbsp;image_now.get_rect()</td><td class="lineNumber">244</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nimage&nbsp;=&nbsp;image_now.get_rect()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">245</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dlx&nbsp;=&nbsp;nimage[2]&nbsp;//&nbsp;2</td><td class="lineNumber">245</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dlx&nbsp;=&nbsp;nimage[2]&nbsp;//&nbsp;2</td>
+      </tr>
+      <tr>
+<td class="lineNumber">246</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dly&nbsp;=&nbsp;nimage[3]&nbsp;//&nbsp;2</td><td class="lineNumber">246</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dly&nbsp;=&nbsp;nimage[3]&nbsp;//&nbsp;2</td>
+      </tr>
+      <tr>
+<td class="lineNumber">247</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;canvas.blit(image_now,&nbsp;(self.pos[0]&nbsp;-&nbsp;dlx,&nbsp;self.pos[1]&nbsp;-&nbsp;dly,</td><td class="lineNumber">247</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;canvas.blit(image_now,&nbsp;(self.pos[0]&nbsp;-&nbsp;dlx,&nbsp;self.pos[1]&nbsp;-&nbsp;dly,</td>
+      </tr>
+      <tr>
+<td class="lineNumber">248</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nimage[2],&nbsp;nimage[3]))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">248</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nimage[2],&nbsp;nimage[3]))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">249</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;update(self):</td><td class="lineNumber">249</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;update(self):</td>
+      </tr>
+      <tr>
+<td class="lineNumber">250</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;&nbsp;msl_tgr</td><td class="lineNumber">250</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;&nbsp;msl_tgr</td>
+      </tr>
+      <tr>
+<td class="lineNumber">251</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;for&nbsp;an&nbsp;asteroid,&nbsp;there&nbsp;will&nbsp;be&nbsp;an&nbsp;ang_vel&nbsp;(degrees/frame&nbsp;cycle)</td><td class="lineNumber">251</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;for&nbsp;an&nbsp;asteroid,&nbsp;there&nbsp;will&nbsp;be&nbsp;an&nbsp;ang_vel&nbsp;(degrees/frame&nbsp;cycle)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">252</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;for&nbsp;a&nbsp;missile,&nbsp;ang_vel&nbsp;will&nbsp;be&nbsp;zero</td><td class="lineNumber">252</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;for&nbsp;a&nbsp;missile,&nbsp;ang_vel&nbsp;will&nbsp;be&nbsp;zero</td>
+      </tr>
+      <tr>
+<td class="lineNumber">253</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.angle&nbsp;=&nbsp;self.angle&nbsp;+&nbsp;self.angle_vel</td><td class="lineNumber">253</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.angle&nbsp;=&nbsp;self.angle&nbsp;+&nbsp;self.angle_vel</td>
+      </tr>
+      <tr>
+<td class="lineNumber">254</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pos[0]&nbsp;=&nbsp;self.pos[0]&nbsp;+&nbsp;self.vel[0]</td><td class="lineNumber">254</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pos[0]&nbsp;=&nbsp;self.pos[0]&nbsp;+&nbsp;self.vel[0]</td>
+      </tr>
+      <tr>
+<td class="lineNumber">255</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pos[1]&nbsp;=&nbsp;self.pos[1]&nbsp;+&nbsp;self.vel[1]</td><td class="lineNumber">255</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pos[1]&nbsp;=&nbsp;self.pos[1]&nbsp;+&nbsp;self.vel[1]</td>
+      </tr>
+      <tr>
+<td class="lineNumber">256</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">256</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">257</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">257</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">258</td><td class="equal">def&nbsp;draw(canvas):</td><td class="lineNumber">258</td><td class="equal">def&nbsp;draw(canvas):</td>
+      </tr>
+      <tr>
+<td class="lineNumber">259</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;timer_debris_fld</td><td class="lineNumber">259</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;timer_debris_fld</td>
+      </tr>
+      <tr>
+<td class="lineNumber">260</td><td class="equal"></td><td class="lineNumber">260</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">261</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;animiate&nbsp;background</td><td class="lineNumber">261</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;animiate&nbsp;background</td>
+      </tr>
+      <tr>
+<td class="lineNumber">262</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;timer_debris_fld&nbsp;+=&nbsp;1</td><td class="lineNumber">262</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;timer_debris_fld&nbsp;+=&nbsp;1</td>
+      </tr>
+      <tr>
+<td class="lineNumber">263</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;wtime&nbsp;=&nbsp;(timer_debris_fld&nbsp;/&nbsp;4)&nbsp;%&nbsp;WIDTH</td><td class="lineNumber">263</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;wtime&nbsp;=&nbsp;(timer_debris_fld&nbsp;/&nbsp;4)&nbsp;%&nbsp;WIDTH</td>
+      </tr>
+      <tr>
+<td class="lineNumber">264</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;center&nbsp;=&nbsp;debris_info.get_center()</td><td class="lineNumber">264</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;center&nbsp;=&nbsp;debris_info.get_center()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">265</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;size&nbsp;=&nbsp;debris_info.get_size()</td><td class="lineNumber">265</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;size&nbsp;=&nbsp;debris_info.get_size()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">266</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#print('time:&nbsp;',&nbsp;timer_debris_fld,&nbsp;'&nbsp;wtime:&nbsp;',&nbsp;wtime,&nbsp;'&nbsp;center:&nbsp;',&nbsp;center,&nbsp;'&nbsp;size:&nbsp;',&nbsp;size)</td><td class="lineNumber">266</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#print('time:&nbsp;',&nbsp;timer_debris_fld,&nbsp;'&nbsp;wtime:&nbsp;',&nbsp;wtime,&nbsp;'&nbsp;center:&nbsp;',&nbsp;center,&nbsp;'&nbsp;size:&nbsp;',&nbsp;size)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">267</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;canvas.blit(nebula_image,&nbsp;(0,&nbsp;0,&nbsp;WIDTH,&nbsp;HEIGHT))</td><td class="lineNumber">267</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;canvas.blit(nebula_image,&nbsp;(0,&nbsp;0,&nbsp;WIDTH,&nbsp;HEIGHT))</td>
+      </tr>
+      <tr>
+<td class="lineNumber">268</td><td class="equal"></td><td class="lineNumber">268</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">269</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;dx&nbsp;=&nbsp;int(wtime)</td><td class="lineNumber">269</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;dx&nbsp;=&nbsp;int(wtime)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">270</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;dy&nbsp;=&nbsp;int(HEIGHT&nbsp;/&nbsp;2&nbsp;-&nbsp;300)</td><td class="lineNumber">270</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;dy&nbsp;=&nbsp;int(HEIGHT&nbsp;/&nbsp;2&nbsp;-&nbsp;300)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">271</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">271</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">272</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;canvas.blit(debris_image,&nbsp;(dx,&nbsp;dy,&nbsp;WIDTH,&nbsp;HEIGHT))</td><td class="lineNumber">272</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;canvas.blit(debris_image,&nbsp;(dx,&nbsp;dy,&nbsp;WIDTH,&nbsp;HEIGHT))</td>
+      </tr>
+      <tr>
+<td class="lineNumber">273</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;dx1&nbsp;=&nbsp;int(wtime&nbsp;-&nbsp;800)</td><td class="lineNumber">273</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;dx1&nbsp;=&nbsp;int(wtime&nbsp;-&nbsp;800)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">274</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#print('timer_debris_fld:&nbsp;',&nbsp;timer_debris_fld,&nbsp;'&nbsp;wtime:&nbsp;',&nbsp;wtime,&nbsp;'&nbsp;dx:&nbsp;',&nbsp;dx,&nbsp;'&nbsp;dx1:&nbsp;',&nbsp;dx1)</td><td class="lineNumber">274</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#print('timer_debris_fld:&nbsp;',&nbsp;timer_debris_fld,&nbsp;'&nbsp;wtime:&nbsp;',&nbsp;wtime,&nbsp;'&nbsp;dx:&nbsp;',&nbsp;dx,&nbsp;'&nbsp;dx1:&nbsp;',&nbsp;dx1)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">275</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;canvas.blit(debris_image,&nbsp;(dx1,&nbsp;dy,&nbsp;WIDTH,&nbsp;HEIGHT))</td><td class="lineNumber">275</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;canvas.blit(debris_image,&nbsp;(dx1,&nbsp;dy,&nbsp;WIDTH,&nbsp;HEIGHT))</td>
+      </tr>
+      <tr>
+<td class="lineNumber">276</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;draw&nbsp;ship&nbsp;and&nbsp;sprites</td><td class="lineNumber">276</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;draw&nbsp;ship&nbsp;and&nbsp;sprites</td>
+      </tr>
+      <tr>
+<td class="lineNumber">277</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#TODO&nbsp;how&nbsp;do&nbsp;these&nbsp;objects&nbsp;get&nbsp;created&nbsp;??</td><td class="lineNumber">277</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#TODO&nbsp;how&nbsp;do&nbsp;these&nbsp;objects&nbsp;get&nbsp;created&nbsp;??</td>
+      </tr>
+      <tr>
+<td class="lineNumber">278</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;&nbsp;It&nbsp;looks&nbsp;like&nbsp;they&nbsp;get&nbsp;initialized&nbsp;in&nbsp;the&nbsp;'main'&nbsp;function;&nbsp;need&nbsp;to&nbsp;</td><td class="lineNumber">278</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;&nbsp;It&nbsp;looks&nbsp;like&nbsp;they&nbsp;get&nbsp;initialized&nbsp;in&nbsp;the&nbsp;'main'&nbsp;function;&nbsp;need&nbsp;to&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">279</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;&nbsp;recheck,&nbsp;but&nbsp;I&nbsp;think&nbsp;it&nbsp;might&nbsp;run&nbsp;this&nbsp;way</td><td class="lineNumber">279</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;&nbsp;recheck,&nbsp;but&nbsp;I&nbsp;think&nbsp;it&nbsp;might&nbsp;run&nbsp;this&nbsp;way</td>
+      </tr>
+      <tr>
+<td class="lineNumber">280</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#my_ship.draw(canvas)</td><td class="lineNumber">280</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#my_ship.draw(canvas)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">281</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;#a_rock.draw(canvas)</td><td class="lineNumber">281</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;a_rock.draw(canvas)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">282</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#a_missile.draw(canvas)</td><td class="lineNumber">282</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#a_missile.draw(canvas)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">283</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;len(msl)&nbsp;&gt;&nbsp;0:</td><td class="lineNumber">283</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;len(msl)&nbsp;&gt;&nbsp;0:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">284</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;item&nbsp;in&nbsp;range(len(msl)):</td><td class="lineNumber">284</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;item&nbsp;in&nbsp;range(len(msl)):</td>
+      </tr>
+      <tr>
+<td class="lineNumber">285</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('length&nbsp;of&nbsp;msl&nbsp;list:&nbsp;',&nbsp;len(msl))</td><td class="lineNumber">285</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('length&nbsp;of&nbsp;msl&nbsp;list:&nbsp;',&nbsp;len(msl))</td>
+      </tr>
+      <tr>
+<td class="lineNumber">286</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msl[item].draw(canvas)</td><td class="lineNumber">286</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msl[item].draw(canvas)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">287</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('after&nbsp;msl&nbsp;update')&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">287</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('after&nbsp;msl&nbsp;update')&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">288</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">288</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">289</td><td class="removed">&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;len(rock)&nbsp;&gt;&nbsp;0:</td><td class="lineNumber"></td><td class="empty"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">290</td><td class="removed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(len(rock)):</td><td class="lineNumber"></td><td class="empty"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">291</td><td class="removed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rock[i].draw(canvas)</td><td class="lineNumber"></td><td class="empty"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">292</td><td class="removed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rock[i].update()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber"></td><td class="empty"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">293</td><td class="removed">&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber"></td><td class="empty"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">294</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;update&nbsp;ship&nbsp;and&nbsp;sprites</td><td class="lineNumber">289</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;update&nbsp;ship&nbsp;and&nbsp;sprites</td>
+      </tr>
+      <tr>
+<td class="lineNumber">295</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;my_ship.update()</td><td class="lineNumber">290</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;my_ship.update()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">296</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;#rock.update()</td><td class="lineNumber">291</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;#a_rock.update()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">297</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#a_missile.update()</td><td class="lineNumber">292</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#a_missile.update()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">298</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;print('cp1&nbsp;msl_tgr:&nbsp;',&nbsp;msl_tgr)</td><td class="lineNumber">293</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;print('cp1&nbsp;msl_tgr:&nbsp;',&nbsp;msl_tgr)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">299</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">294</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">300</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;len(msl)&nbsp;&gt;&nbsp;0:</td><td class="lineNumber">295</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;len(msl)&nbsp;&gt;&nbsp;0:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">301</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;item&nbsp;in&nbsp;range(len(msl)):</td><td class="lineNumber">296</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;item&nbsp;in&nbsp;range(len(msl)):</td>
+      </tr>
+      <tr>
+<td class="lineNumber">302</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('length&nbsp;of&nbsp;msl&nbsp;list:&nbsp;',&nbsp;len(msl))</td><td class="lineNumber">297</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('length&nbsp;of&nbsp;msl&nbsp;list:&nbsp;',&nbsp;len(msl))</td>
+      </tr>
+      <tr>
+<td class="lineNumber">303</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msl[item].update()</td><td class="lineNumber">298</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msl[item].update()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">304</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('after&nbsp;msl&nbsp;update')</td><td class="lineNumber">299</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('after&nbsp;msl&nbsp;update')</td>
+      </tr>
+      <tr>
+<td class="lineNumber">305</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">300</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">306</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;my_ship.draw(canvas)</td><td class="lineNumber">301</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;my_ship.draw(canvas)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">307</td><td class="equal"></td><td class="lineNumber">302</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">308</td><td class="equal"></td><td class="lineNumber">303</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">309</td><td class="equal"></td><td class="lineNumber">304</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">310</td><td class="changed">#&nbsp;timer&nbsp;handler&nbsp;that&nbsp;spawns&nbsp;a&nbsp;rock</td><td class="lineNumber">305</td><td class="changed">#&nbsp;timer&nbsp;handler&nbsp;that&nbsp;spawns&nbsp;a&nbsp;rock&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">311</td><td class="removed"></td><td class="lineNumber"></td><td class="empty"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">312</td><td class="removed">cposr&nbsp;=&nbsp;[0,&nbsp;0]</td><td class="lineNumber"></td><td class="empty"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">313</td><td class="removed">velr&nbsp;=&nbsp;[0,&nbsp;0]</td><td class="lineNumber"></td><td class="empty"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">314</td><td class="removed">rock&nbsp;=&nbsp;[]</td><td class="lineNumber"></td><td class="empty"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">315</td><td class="equal">def&nbsp;rock_spawner():</td><td class="lineNumber">306</td><td class="equal">def&nbsp;rock_spawner():</td>
+      </tr>
+      <tr>
+<td class="lineNumber">316</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;random.randint(0,&nbsp;WIDTH)</td><td class="lineNumber">307</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;#TODO&nbsp;move&nbsp;stub&nbsp;of&nbsp;timer&nbsp;event&nbsp;queue&nbsp;placement&nbsp;from&nbsp;00sandbox</td>
+      </tr>
+      <tr>
+<td class="lineNumber">317</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;cposr[0]&nbsp;=&nbsp;x</td><td class="lineNumber">308</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;pass</td>
+      </tr>
+      <tr>
+<td class="lineNumber">318</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;random.randint(0,&nbsp;HEIGHT)</td><td class="lineNumber"></td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">319</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;cposr[1]&nbsp;=&nbsp;y</td><td class="lineNumber"></td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">320</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;#print('x:&nbsp;',&nbsp;x,&nbsp;'&nbsp;y:&nbsp;',&nbsp;y)</td><td class="lineNumber"></td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">321</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;velr[0]&nbsp;=&nbsp;(random.randint(-1,&nbsp;1))</td><td class="lineNumber"></td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">322</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;velr[1]&nbsp;=&nbsp;(random.randint(-1,&nbsp;1))</td><td class="lineNumber"></td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">323</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;ang_vel&nbsp;=&nbsp;(random.random()&nbsp;-&nbsp;.5)&nbsp;*&nbsp;10</td><td class="lineNumber"></td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">324</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber"></td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">325</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;what&nbsp;if&nbsp;want&nbsp;to&nbsp;make&nbsp;different&nbsp;sizes</td><td class="lineNumber"></td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">326</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;wh&nbsp;=&nbsp;random.randint(25,&nbsp;90)</td><td class="lineNumber"></td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">327</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;#print('wh:&nbsp;',&nbsp;wh)</td><td class="lineNumber"></td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">328</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;scaled_image&nbsp;=&nbsp;pygame.transform.scale(asteroid_image,&nbsp;(wh,&nbsp;wh))</td><td class="lineNumber"></td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">329</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;rock.append(Sprite([cposr[0],&nbsp;cposr[1]],&nbsp;[velr[0],&nbsp;velr[1]],&nbsp;0,&nbsp;ang_vel,&nbsp;scaled_image,&nbsp;asteroid_info))&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber"></td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">330</td><td class="changed">&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber"></td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">331</td><td class="changed"></td><td class="lineNumber"></td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">332</td><td class="changed"></td><td class="lineNumber"></td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">333</td><td class="changed"></td><td class="lineNumber"></td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">334</td><td class="changed"></td><td class="lineNumber"></td><td class="changed"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">335</td><td class="equal">def&nbsp;missile_fire(posn,&nbsp;angle):</td><td class="lineNumber">309</td><td class="equal">def&nbsp;missile_fire(posn,&nbsp;angle):</td>
+      </tr>
+      <tr>
+<td class="lineNumber">336</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;angle_rad&nbsp;=&nbsp;(angle&nbsp;*&nbsp;3.14159)&nbsp;/&nbsp;180</td><td class="lineNumber">310</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;angle_rad&nbsp;=&nbsp;(angle&nbsp;*&nbsp;3.14159)&nbsp;/&nbsp;180</td>
+      </tr>
+      <tr>
+<td class="lineNumber">337</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;velvector&nbsp;=&nbsp;[math.cos(angle_rad),&nbsp;-math.sin(angle_rad)]&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">311</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;velvector&nbsp;=&nbsp;[math.cos(angle_rad),&nbsp;-math.sin(angle_rad)]&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">338</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;msl.append(Sprite([posn[0],&nbsp;posn[1]],&nbsp;[velvector[0]*4,&nbsp;velvector[1]*4],&nbsp;angle,&nbsp;0,&nbsp;&nbsp;missile_image,&nbsp;missile_info))</td><td class="lineNumber">312</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;msl.append(Sprite([posn[0],&nbsp;posn[1]],&nbsp;[velvector[0]*4,&nbsp;velvector[1]*4],&nbsp;angle,&nbsp;0,&nbsp;&nbsp;missile_image,&nbsp;missile_info))</td>
+      </tr>
+      <tr>
+<td class="lineNumber">339</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#print('msl.append:&nbsp;',&nbsp;msl)</td><td class="lineNumber">313</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#print('msl.append:&nbsp;',&nbsp;msl)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">340</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#print('length&nbsp;of&nbsp;missile&nbsp;list:&nbsp;',&nbsp;len(msl))</td><td class="lineNumber">314</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#print('length&nbsp;of&nbsp;missile&nbsp;list:&nbsp;',&nbsp;len(msl))</td>
+      </tr>
+      <tr>
+<td class="lineNumber">341</td><td class="equal"></td><td class="lineNumber">315</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">342</td><td class="equal">#&nbsp;The&nbsp;use&nbsp;of&nbsp;the&nbsp;main&nbsp;function&nbsp;is&nbsp;described&nbsp;in&nbsp;Chapter&nbsp;9.</td><td class="lineNumber">316</td><td class="equal">#&nbsp;The&nbsp;use&nbsp;of&nbsp;the&nbsp;main&nbsp;function&nbsp;is&nbsp;described&nbsp;in&nbsp;Chapter&nbsp;9.</td>
+      </tr>
+      <tr>
+<td class="lineNumber">343</td><td class="equal">#def&nbsp;main():</td><td class="lineNumber">317</td><td class="equal">#def&nbsp;main():</td>
+      </tr>
+      <tr>
+<td class="lineNumber">344</td><td class="equal">&quot;&quot;&quot;&nbsp;Main&nbsp;function&nbsp;for&nbsp;the&nbsp;game.&nbsp;&quot;&quot;&quot;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">318</td><td class="equal">&quot;&quot;&quot;&nbsp;Main&nbsp;function&nbsp;for&nbsp;the&nbsp;game.&nbsp;&quot;&quot;&quot;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">345</td><td class="equal"></td><td class="lineNumber">319</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">346</td><td class="equal">#&nbsp;Set&nbsp;the&nbsp;width&nbsp;and&nbsp;height&nbsp;of&nbsp;the&nbsp;screen&nbsp;[width,height]</td><td class="lineNumber">320</td><td class="equal">#&nbsp;Set&nbsp;the&nbsp;width&nbsp;and&nbsp;height&nbsp;of&nbsp;the&nbsp;screen&nbsp;[width,height]</td>
+      </tr>
+      <tr>
+<td class="lineNumber">347</td><td class="equal">#size&nbsp;=&nbsp;[700,&nbsp;500]</td><td class="lineNumber">321</td><td class="equal">#size&nbsp;=&nbsp;[700,&nbsp;500]</td>
+      </tr>
+      <tr>
+<td class="lineNumber">348</td><td class="equal"></td><td class="lineNumber">322</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">349</td><td class="equal"></td><td class="lineNumber">323</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">350</td><td class="equal">pygame.display.set_caption(&quot;Asteroids&quot;)</td><td class="lineNumber">324</td><td class="equal">pygame.display.set_caption(&quot;Asteroids&quot;)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">351</td><td class="equal"></td><td class="lineNumber">325</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">352</td><td class="equal">#Loop&nbsp;until&nbsp;the&nbsp;user&nbsp;clicks&nbsp;the&nbsp;close&nbsp;button.</td><td class="lineNumber">326</td><td class="equal">#Loop&nbsp;until&nbsp;the&nbsp;user&nbsp;clicks&nbsp;the&nbsp;close&nbsp;button.</td>
+      </tr>
+      <tr>
+<td class="lineNumber">353</td><td class="equal">done&nbsp;=&nbsp;False</td><td class="lineNumber">327</td><td class="equal">done&nbsp;=&nbsp;False</td>
+      </tr>
+      <tr>
+<td class="lineNumber">354</td><td class="equal"></td><td class="lineNumber">328</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">355</td><td class="equal">#&nbsp;Used&nbsp;to&nbsp;manage&nbsp;how&nbsp;fast&nbsp;the&nbsp;screen&nbsp;updates</td><td class="lineNumber">329</td><td class="equal">#&nbsp;Used&nbsp;to&nbsp;manage&nbsp;how&nbsp;fast&nbsp;the&nbsp;screen&nbsp;updates</td>
+      </tr>
+      <tr>
+<td class="lineNumber">356</td><td class="equal">clock&nbsp;=&nbsp;pygame.time.Clock()</td><td class="lineNumber">330</td><td class="equal">clock&nbsp;=&nbsp;pygame.time.Clock()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">357</td><td class="equal">print('initial&nbsp;cyclectr&nbsp;value:&nbsp;',&nbsp;cyclectr)</td><td class="lineNumber">331</td><td class="equal">print('initial&nbsp;cyclectr&nbsp;value:&nbsp;',&nbsp;cyclectr)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">358</td><td class="equal">#TODO&nbsp;have&nbsp;to&nbsp;come&nbsp;up&nbsp;with&nbsp;something&nbsp;to&nbsp;replace&nbsp;this&nbsp;timer;</td><td class="lineNumber">332</td><td class="equal">#TODO&nbsp;have&nbsp;to&nbsp;come&nbsp;up&nbsp;with&nbsp;something&nbsp;to&nbsp;replace&nbsp;this&nbsp;timer;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">359</td><td class="equal">#&nbsp;&nbsp;maybe&nbsp;something&nbsp;involving&nbsp;pygame.time.set_timer&nbsp;??</td><td class="lineNumber">333</td><td class="equal">#&nbsp;&nbsp;maybe&nbsp;something&nbsp;involving&nbsp;pygame.time.set_timer&nbsp;??</td>
+      </tr>
+      <tr>
+<td class="lineNumber">360</td><td class="equal">#&nbsp;&nbsp;variable&nbsp;'timer'&nbsp;is&nbsp;getting&nbsp;incremented&nbsp;in&nbsp;'draw'&nbsp;function,&nbsp;apparently</td><td class="lineNumber">334</td><td class="equal">#&nbsp;&nbsp;variable&nbsp;'timer'&nbsp;is&nbsp;getting&nbsp;incremented&nbsp;in&nbsp;'draw'&nbsp;function,&nbsp;apparently</td>
+      </tr>
+      <tr>
+<td class="lineNumber">361</td><td class="equal">#&nbsp;&nbsp;every&nbsp;frame</td><td class="lineNumber">335</td><td class="equal">#&nbsp;&nbsp;every&nbsp;frame</td>
+      </tr>
+      <tr>
+<td class="lineNumber">362</td><td class="equal">#timer&nbsp;=&nbsp;simplegui.create_timer(1000.0,&nbsp;rock_spawner)</td><td class="lineNumber">336</td><td class="equal">#timer&nbsp;=&nbsp;simplegui.create_timer(1000.0,&nbsp;rock_spawner)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">363</td><td class="equal">screen&nbsp;=&nbsp;pygame.display.set_mode((WIDTH,&nbsp;HEIGHT))</td><td class="lineNumber">337</td><td class="equal">screen&nbsp;=&nbsp;pygame.display.set_mode((WIDTH,&nbsp;HEIGHT))</td>
+      </tr>
+      <tr>
+<td class="lineNumber">364</td><td class="equal">#&nbsp;initialize&nbsp;ship&nbsp;and&nbsp;two&nbsp;sprites</td><td class="lineNumber">338</td><td class="equal">#&nbsp;initialize&nbsp;ship&nbsp;and&nbsp;two&nbsp;sprites</td>
+      </tr>
+      <tr>
+<td class="lineNumber">365</td><td class="equal">my_ship&nbsp;=&nbsp;Ship([WIDTH&nbsp;/&nbsp;2,&nbsp;HEIGHT&nbsp;/&nbsp;2],&nbsp;[0,&nbsp;0],&nbsp;0,&nbsp;ship_image,&nbsp;ship_info)</td><td class="lineNumber">339</td><td class="equal">my_ship&nbsp;=&nbsp;Ship([WIDTH&nbsp;/&nbsp;2,&nbsp;HEIGHT&nbsp;/&nbsp;2],&nbsp;[0,&nbsp;0],&nbsp;0,&nbsp;ship_image,&nbsp;ship_info)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">366</td><td class="changed">#a_rock&nbsp;=&nbsp;Sprite([WIDTH&nbsp;/&nbsp;3,&nbsp;HEIGHT&nbsp;/&nbsp;3],&nbsp;[1,&nbsp;1],&nbsp;0,&nbsp;0,&nbsp;asteroid_image,&nbsp;asteroid_info)</td><td class="lineNumber">340</td><td class="changed">a_rock&nbsp;=&nbsp;Sprite([WIDTH&nbsp;/&nbsp;3,&nbsp;HEIGHT&nbsp;/&nbsp;3],&nbsp;[1,&nbsp;1],&nbsp;0,&nbsp;0,&nbsp;asteroid_image,&nbsp;asteroid_info)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">367</td><td class="changed">#a_missile&nbsp;=&nbsp;Sprite([2&nbsp;*&nbsp;WIDTH&nbsp;/&nbsp;3,&nbsp;2&nbsp;*&nbsp;HEIGHT&nbsp;/&nbsp;3],&nbsp;[-1,1],&nbsp;0,&nbsp;0,&nbsp;missile_image,&nbsp;missile_info,&nbsp;m_sound)&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">341</td><td class="changed">a_missile&nbsp;=&nbsp;Sprite([2&nbsp;*&nbsp;WIDTH&nbsp;/&nbsp;3,&nbsp;2&nbsp;*&nbsp;HEIGHT&nbsp;/&nbsp;3],&nbsp;[-1,1],&nbsp;0,&nbsp;0,&nbsp;missile_image,&nbsp;missile_info,&nbsp;m_sound)&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">368</td><td class="equal">next_launch&nbsp;=&nbsp;0</td><td class="lineNumber">342</td><td class="equal">next_launch&nbsp;=&nbsp;0</td>
+      </tr>
+      <tr>
+<td class="lineNumber">369</td><td class="removed">next_rspawn&nbsp;=&nbsp;0</td><td class="lineNumber"></td><td class="empty"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">370</td><td class="equal">#&nbsp;--------&nbsp;Main&nbsp;Program&nbsp;Loop&nbsp;-----------</td><td class="lineNumber">343</td><td class="equal">#&nbsp;--------&nbsp;Main&nbsp;Program&nbsp;Loop&nbsp;-----------</td>
+      </tr>
+      <tr>
+<td class="lineNumber">371</td><td class="equal">while&nbsp;not&nbsp;done:</td><td class="lineNumber">344</td><td class="equal">while&nbsp;not&nbsp;done:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">372</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;prog_time&nbsp;=&nbsp;pygame.time.get_ticks()&nbsp;&nbsp;#&nbsp;get&nbsp;program&nbsp;timer&nbsp;for&nbsp;this&nbsp;cycle</td><td class="lineNumber">345</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;prog_time&nbsp;=&nbsp;pygame.time.get_ticks()&nbsp;&nbsp;#&nbsp;get&nbsp;program&nbsp;timer&nbsp;for&nbsp;this&nbsp;cycle</td>
+      </tr>
+      <tr>
+<td class="lineNumber">373</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">346</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">374</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ALL&nbsp;EVENT&nbsp;PROCESSING&nbsp;SHOULD&nbsp;GO&nbsp;BELOW&nbsp;THIS&nbsp;COMMENT</td><td class="lineNumber">347</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ALL&nbsp;EVENT&nbsp;PROCESSING&nbsp;SHOULD&nbsp;GO&nbsp;BELOW&nbsp;THIS&nbsp;COMMENT</td>
+      </tr>
+      <tr>
+<td class="lineNumber">375</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;event&nbsp;in&nbsp;pygame.event.get():&nbsp;#&nbsp;User&nbsp;did&nbsp;something</td><td class="lineNumber">348</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;event&nbsp;in&nbsp;pygame.event.get():&nbsp;#&nbsp;User&nbsp;did&nbsp;something</td>
+      </tr>
+      <tr>
+<td class="lineNumber">376</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.type&nbsp;==&nbsp;pygame.QUIT:&nbsp;#&nbsp;If&nbsp;user&nbsp;clicked&nbsp;close</td><td class="lineNumber">349</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.type&nbsp;==&nbsp;pygame.QUIT:&nbsp;#&nbsp;If&nbsp;user&nbsp;clicked&nbsp;close</td>
+      </tr>
+      <tr>
+<td class="lineNumber">377</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;done&nbsp;=&nbsp;True&nbsp;#&nbsp;Flag&nbsp;that&nbsp;we&nbsp;are&nbsp;done&nbsp;so&nbsp;we&nbsp;exit&nbsp;this&nbsp;loop</td><td class="lineNumber">350</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;done&nbsp;=&nbsp;True&nbsp;#&nbsp;Flag&nbsp;that&nbsp;we&nbsp;are&nbsp;done&nbsp;so&nbsp;we&nbsp;exit&nbsp;this&nbsp;loop</td>
+      </tr>
+      <tr>
+<td class="lineNumber">378</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">351</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">379</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.type&nbsp;==&nbsp;KEYDOWN:</td><td class="lineNumber">352</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.type&nbsp;==&nbsp;KEYDOWN:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">380</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.key&nbsp;==&nbsp;K_LEFT:</td><td class="lineNumber">353</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.key&nbsp;==&nbsp;K_LEFT:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">381</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rotate_cclockwise&nbsp;=&nbsp;True</td><td class="lineNumber">354</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rotate_cclockwise&nbsp;=&nbsp;True</td>
+      </tr>
+      <tr>
+<td class="lineNumber">382</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rotate_clockwise&nbsp;=&nbsp;False</td><td class="lineNumber">355</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rotate_clockwise&nbsp;=&nbsp;False</td>
+      </tr>
+      <tr>
+<td class="lineNumber">383</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.key&nbsp;==&nbsp;K_RIGHT:</td><td class="lineNumber">356</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.key&nbsp;==&nbsp;K_RIGHT:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">384</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rotate_cclockwise&nbsp;=&nbsp;False</td><td class="lineNumber">357</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rotate_cclockwise&nbsp;=&nbsp;False</td>
+      </tr>
+      <tr>
+<td class="lineNumber">385</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rotate_clockwise&nbsp;=&nbsp;True</td><td class="lineNumber">358</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rotate_clockwise&nbsp;=&nbsp;True</td>
+      </tr>
+      <tr>
+<td class="lineNumber">386</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.key&nbsp;==&nbsp;K_UP:</td><td class="lineNumber">359</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.key&nbsp;==&nbsp;K_UP:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">387</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my_ship.thrust&nbsp;=&nbsp;True</td><td class="lineNumber">360</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my_ship.thrust&nbsp;=&nbsp;True</td>
+      </tr>
+      <tr>
+<td class="lineNumber">388</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.key&nbsp;==&nbsp;K_SPACE:</td><td class="lineNumber">361</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.key&nbsp;==&nbsp;K_SPACE:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">389</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#TODO&nbsp;probably&nbsp;need&nbsp;to&nbsp;move&nbsp;this&nbsp;to&nbsp;the&nbsp;update&nbsp;method&nbsp;and&nbsp;keep</td><td class="lineNumber">362</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#TODO&nbsp;probably&nbsp;need&nbsp;to&nbsp;move&nbsp;this&nbsp;to&nbsp;the&nbsp;update&nbsp;method&nbsp;and&nbsp;keep</td>
+      </tr>
+      <tr>
+<td class="lineNumber">390</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;firing&nbsp;as&nbsp;long&nbsp;as&nbsp;the&nbsp;flag&nbsp;is&nbsp;True;&nbsp;right&nbsp;now&nbsp;it&nbsp;fires&nbsp;only</td><td class="lineNumber">363</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;firing&nbsp;as&nbsp;long&nbsp;as&nbsp;the&nbsp;flag&nbsp;is&nbsp;True;&nbsp;right&nbsp;now&nbsp;it&nbsp;fires&nbsp;only</td>
+      </tr>
+      <tr>
+<td class="lineNumber">391</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;once&nbsp;per&nbsp;key&nbsp;down&nbsp;it&nbsp;appears</td><td class="lineNumber">364</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;once&nbsp;per&nbsp;key&nbsp;down&nbsp;it&nbsp;appears</td>
+      </tr>
+      <tr>
+<td class="lineNumber">392</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#a_missile.angle&nbsp;=&nbsp;my_ship.get_angle()</td><td class="lineNumber">365</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#a_missile.angle&nbsp;=&nbsp;my_ship.get_angle()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">393</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#a_missile.pos&nbsp;=&nbsp;my_ship.get_pos()</td><td class="lineNumber">366</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#a_missile.pos&nbsp;=&nbsp;my_ship.get_pos()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">394</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('ship&nbsp;size&nbsp;and&nbsp;angle:&nbsp;',&nbsp;a_missile.pos,&nbsp;a_missile.angle)</td><td class="lineNumber">367</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#print('ship&nbsp;size&nbsp;and&nbsp;angle:&nbsp;',&nbsp;a_missile.pos,&nbsp;a_missile.angle)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">395</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msl_tgr&nbsp;=&nbsp;True</td><td class="lineNumber">368</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msl_tgr&nbsp;=&nbsp;True</td>
+      </tr>
+      <tr>
+<td class="lineNumber">396</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#missile_fire(a_missile.pos,&nbsp;a_missile.angle)</td><td class="lineNumber">369</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#missile_fire(a_missile.pos,&nbsp;a_missile.angle)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">397</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">370</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">398</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.type&nbsp;==&nbsp;KEYUP:</td><td class="lineNumber">371</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.type&nbsp;==&nbsp;KEYUP:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">399</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.key&nbsp;==&nbsp;K_ESCAPE:</td><td class="lineNumber">372</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.key&nbsp;==&nbsp;K_ESCAPE:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">400</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pygame.quit()</td><td class="lineNumber">373</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pygame.quit()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">401</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sys.exit()</td><td class="lineNumber">374</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sys.exit()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">402</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.key&nbsp;==&nbsp;K_LEFT:</td><td class="lineNumber">375</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.key&nbsp;==&nbsp;K_LEFT:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">403</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rotate_cclockwise&nbsp;=&nbsp;False</td><td class="lineNumber">376</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rotate_cclockwise&nbsp;=&nbsp;False</td>
+      </tr>
+      <tr>
+<td class="lineNumber">404</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.key&nbsp;==&nbsp;K_RIGHT:</td><td class="lineNumber">377</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.key&nbsp;==&nbsp;K_RIGHT:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">405</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rotate_clockwise&nbsp;=&nbsp;False</td><td class="lineNumber">378</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rotate_clockwise&nbsp;=&nbsp;False</td>
+      </tr>
+      <tr>
+<td class="lineNumber">406</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.key&nbsp;==&nbsp;K_UP:</td><td class="lineNumber">379</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.key&nbsp;==&nbsp;K_UP:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">407</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my_ship.thrust&nbsp;=&nbsp;False</td><td class="lineNumber">380</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my_ship.thrust&nbsp;=&nbsp;False</td>
+      </tr>
+      <tr>
+<td class="lineNumber">408</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.key&nbsp;==&nbsp;K_SPACE:</td><td class="lineNumber">381</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;event.key&nbsp;==&nbsp;K_SPACE:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">409</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msl_tgr&nbsp;=&nbsp;False</td><td class="lineNumber">382</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msl_tgr&nbsp;=&nbsp;False</td>
+      </tr>
+      <tr>
+<td class="lineNumber">410</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">383</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">411</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ALL&nbsp;EVENT&nbsp;PROCESSING&nbsp;SHOULD&nbsp;GO&nbsp;ABOVE&nbsp;THIS&nbsp;COMMENT</td><td class="lineNumber">384</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ALL&nbsp;EVENT&nbsp;PROCESSING&nbsp;SHOULD&nbsp;GO&nbsp;ABOVE&nbsp;THIS&nbsp;COMMENT</td>
+      </tr>
+      <tr>
+<td class="lineNumber">412</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#check&nbsp;and&nbsp;spawn&nbsp;missile</td><td class="lineNumber">385</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#check&nbsp;and&nbsp;spawn&nbsp;missile</td>
+      </tr>
+      <tr>
+<td class="lineNumber">413</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;msl_tgr:</td><td class="lineNumber">386</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;msl_tgr:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">414</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a_missile.angle&nbsp;=&nbsp;my_ship.get_angle()</td><td class="lineNumber">387</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a_missile.angle&nbsp;=&nbsp;my_ship.get_angle()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">415</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a_missile.pos&nbsp;=&nbsp;my_ship.get_pos()</td><td class="lineNumber">388</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a_missile.pos&nbsp;=&nbsp;my_ship.get_pos()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">416</td><td class="equal"></td><td class="lineNumber">389</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">417</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;slow&nbsp;down&nbsp;firing&nbsp;rate&nbsp;to&nbsp;about&nbsp;every&nbsp;200&nbsp;ms</td><td class="lineNumber">390</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;slow&nbsp;down&nbsp;firing&nbsp;rate&nbsp;to&nbsp;about&nbsp;every&nbsp;200&nbsp;ms</td>
+      </tr>
+      <tr>
+<td class="lineNumber">418</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;next_launch&nbsp;&lt;=&nbsp;prog_time:</td><td class="lineNumber">391</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;next_launch&nbsp;&lt;=&nbsp;prog_time:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">419</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;missile_fire(a_missile.pos,&nbsp;a_missile.angle)</td><td class="lineNumber">392</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;missile_fire(a_missile.pos,&nbsp;a_missile.angle)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">420</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;next_launch&nbsp;=&nbsp;prog_time&nbsp;+&nbsp;200</td><td class="lineNumber">393</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;next_launch&nbsp;=&nbsp;prog_time&nbsp;+&nbsp;200</td>
+      </tr>
+      <tr>
+<td class="lineNumber">421</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">394</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">422</td><td class="equal"></td><td class="lineNumber">395</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">423</td><td class="equal"></td><td class="lineNumber">396</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">424</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#check&nbsp;and&nbsp;spawn&nbsp;rock</td><td class="lineNumber">397</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#check&nbsp;and&nbsp;spawn&nbsp;rock</td>
+      </tr>
+      <tr>
+<td class="lineNumber">425</td><td class="removed">&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;next_rspawn&nbsp;&lt;=&nbsp;prog_time:</td><td class="lineNumber"></td><td class="empty"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">426</td><td class="removed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;next_rspawn&nbsp;=&nbsp;next_rspawn&nbsp;+&nbsp;1000</td><td class="lineNumber"></td><td class="empty"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">427</td><td class="removed">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rock_spawner()</td><td class="lineNumber"></td><td class="empty"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">428</td><td class="removed">&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber"></td><td class="empty"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">429</td><td class="equal">&nbsp;</td><td class="lineNumber">398</td><td class="equal">&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">430</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ALL&nbsp;GAME&nbsp;LOGIC&nbsp;SHOULD&nbsp;GO&nbsp;BELOW&nbsp;THIS&nbsp;COMMENT</td><td class="lineNumber">399</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ALL&nbsp;GAME&nbsp;LOGIC&nbsp;SHOULD&nbsp;GO&nbsp;BELOW&nbsp;THIS&nbsp;COMMENT</td>
+      </tr>
+      <tr>
+<td class="lineNumber">431</td><td class="equal"></td><td class="lineNumber">400</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">432</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ALL&nbsp;GAME&nbsp;LOGIC&nbsp;SHOULD&nbsp;GO&nbsp;ABOVE&nbsp;THIS&nbsp;COMMENT</td><td class="lineNumber">401</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ALL&nbsp;GAME&nbsp;LOGIC&nbsp;SHOULD&nbsp;GO&nbsp;ABOVE&nbsp;THIS&nbsp;COMMENT</td>
+      </tr>
+      <tr>
+<td class="lineNumber">433</td><td class="equal"></td><td class="lineNumber">402</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">434</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">403</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">435</td><td class="equal"></td><td class="lineNumber">404</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">436</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ALL&nbsp;CODE&nbsp;TO&nbsp;DRAW&nbsp;SHOULD&nbsp;GO&nbsp;BELOW&nbsp;THIS&nbsp;COMMENT</td><td class="lineNumber">405</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ALL&nbsp;CODE&nbsp;TO&nbsp;DRAW&nbsp;SHOULD&nbsp;GO&nbsp;BELOW&nbsp;THIS&nbsp;COMMENT</td>
+      </tr>
+      <tr>
+<td class="lineNumber">437</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">406</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">438</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;First,&nbsp;clear&nbsp;the&nbsp;screen&nbsp;to&nbsp;white.&nbsp;Don't&nbsp;put&nbsp;other&nbsp;drawing&nbsp;commands</td><td class="lineNumber">407</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;First,&nbsp;clear&nbsp;the&nbsp;screen&nbsp;to&nbsp;white.&nbsp;Don't&nbsp;put&nbsp;other&nbsp;drawing&nbsp;commands</td>
+      </tr>
+      <tr>
+<td class="lineNumber">439</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;above&nbsp;this,&nbsp;or&nbsp;they&nbsp;will&nbsp;be&nbsp;erased&nbsp;with&nbsp;this&nbsp;command.</td><td class="lineNumber">408</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;above&nbsp;this,&nbsp;or&nbsp;they&nbsp;will&nbsp;be&nbsp;erased&nbsp;with&nbsp;this&nbsp;command.</td>
+      </tr>
+      <tr>
+<td class="lineNumber">440</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;TODO&nbsp;(recheck&nbsp;this)&nbsp;I&nbsp;think&nbsp;this&nbsp;needs&nbsp;to&nbsp;come&nbsp;out,&nbsp;as&nbsp;we&nbsp;are&nbsp;</td><td class="lineNumber">409</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;TODO&nbsp;(recheck&nbsp;this)&nbsp;I&nbsp;think&nbsp;this&nbsp;needs&nbsp;to&nbsp;come&nbsp;out,&nbsp;as&nbsp;we&nbsp;are&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">441</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;&nbsp;putting&nbsp;up&nbsp;a&nbsp;background&nbsp;image</td><td class="lineNumber">410</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;&nbsp;putting&nbsp;up&nbsp;a&nbsp;background&nbsp;image</td>
+      </tr>
+      <tr>
+<td class="lineNumber">442</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#screen.fill(GREEN)</td><td class="lineNumber">411</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#screen.fill(GREEN)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">443</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">412</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">444</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ALL&nbsp;CODE&nbsp;TO&nbsp;DRAW&nbsp;SHOULD&nbsp;GO&nbsp;ABOVE&nbsp;THIS&nbsp;COMMENT</td><td class="lineNumber">413</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ALL&nbsp;CODE&nbsp;TO&nbsp;DRAW&nbsp;SHOULD&nbsp;GO&nbsp;ABOVE&nbsp;THIS&nbsp;COMMENT</td>
+      </tr>
+      <tr>
+<td class="lineNumber">445</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#my_ship.angle&nbsp;=&nbsp;my_ship.angle&nbsp;+&nbsp;.5</td><td class="lineNumber">414</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#my_ship.angle&nbsp;=&nbsp;my_ship.angle&nbsp;+&nbsp;.5</td>
+      </tr>
+      <tr>
+<td class="lineNumber">446</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#print('my&nbsp;ship&nbsp;angle:&nbsp;',&nbsp;my_ship.angle)</td><td class="lineNumber">415</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#print('my&nbsp;ship&nbsp;angle:&nbsp;',&nbsp;my_ship.angle)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">447</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;draw(screen)</td><td class="lineNumber">416</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;draw(screen)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">448</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Go&nbsp;ahead&nbsp;and&nbsp;update&nbsp;the&nbsp;screen&nbsp;with&nbsp;what&nbsp;we've&nbsp;drawn.</td><td class="lineNumber">417</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Go&nbsp;ahead&nbsp;and&nbsp;update&nbsp;the&nbsp;screen&nbsp;with&nbsp;what&nbsp;we've&nbsp;drawn.</td>
+      </tr>
+      <tr>
+<td class="lineNumber">449</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;pygame.display.update()</td><td class="lineNumber">418</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;pygame.display.update()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">450</td><td class="equal"></td><td class="lineNumber">419</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">451</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Limit&nbsp;to&nbsp;20&nbsp;frames&nbsp;per&nbsp;second</td><td class="lineNumber">420</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Limit&nbsp;to&nbsp;20&nbsp;frames&nbsp;per&nbsp;second</td>
+      </tr>
+      <tr>
+<td class="lineNumber">452</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;clock.tick(FPS)</td><td class="lineNumber">421</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;clock.tick(FPS)</td>
+      </tr>
+      <tr>
+<td class="lineNumber">453</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="lineNumber">422</td><td class="equal">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+<td class="lineNumber">454</td><td class="equal">#&nbsp;Close&nbsp;the&nbsp;window&nbsp;and&nbsp;quit.</td><td class="lineNumber">423</td><td class="equal">#&nbsp;Close&nbsp;the&nbsp;window&nbsp;and&nbsp;quit.</td>
+      </tr>
+      <tr>
+<td class="lineNumber">455</td><td class="equal">#&nbsp;If&nbsp;you&nbsp;forget&nbsp;this&nbsp;line,&nbsp;the&nbsp;program&nbsp;will&nbsp;'hang'</td><td class="lineNumber">424</td><td class="equal">#&nbsp;If&nbsp;you&nbsp;forget&nbsp;this&nbsp;line,&nbsp;the&nbsp;program&nbsp;will&nbsp;'hang'</td>
+      </tr>
+      <tr>
+<td class="lineNumber">456</td><td class="equal">#&nbsp;on&nbsp;exit&nbsp;if&nbsp;running&nbsp;from&nbsp;IDLE.</td><td class="lineNumber">425</td><td class="equal">#&nbsp;on&nbsp;exit&nbsp;if&nbsp;running&nbsp;from&nbsp;IDLE.</td>
+      </tr>
+      <tr>
+<td class="lineNumber">457</td><td class="equal">pygame.quit()</td><td class="lineNumber">426</td><td class="equal">pygame.quit()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">458</td><td class="equal">#sys.exit()</td><td class="lineNumber">427</td><td class="equal">#sys.exit()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">459</td><td class="equal">#quit()</td><td class="lineNumber">428</td><td class="equal">#quit()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">460</td><td class="equal"></td><td class="lineNumber">429</td><td class="equal"></td>
+      </tr>
+      <tr>
+<td class="lineNumber">461</td><td class="equal">#if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</td><td class="lineNumber">430</td><td class="equal">#if&nbsp;__name__&nbsp;==&nbsp;&quot;__main__&quot;:</td>
+      </tr>
+      <tr>
+<td class="lineNumber">462</td><td class="equal">#&nbsp;&nbsp;&nbsp;&nbsp;main()</td><td class="lineNumber">431</td><td class="equal">#&nbsp;&nbsp;&nbsp;&nbsp;main()</td>
+      </tr>
+      <tr>
+<td class="lineNumber">463</td><td class="equal"></td><td class="lineNumber">432</td><td class="equal"></td>
+      </tr>
+  </table>
+</body>
