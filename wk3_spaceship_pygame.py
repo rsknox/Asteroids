@@ -16,10 +16,13 @@
 #           and rocks and missiles
 #rev 14: 7 Aug 2015, 1436 got the rock and missile cull routines working
 #rev 15: 8 Aug 2015, 1858 got the explosion working
+# rev 16: 15 Aug 2015; 1523 verified that the program still works as developed
+#         to date; cleaned up some of the code
+#         using PyCharm for the first time
 # TODO make sure the code works for more than one hit/explosion simultaneously
+
 import pygame, sys
 from pygame.locals import *
-
 import math
 import random
 
@@ -43,12 +46,12 @@ timer_debris_fld = 0
 rotate_cclockwise = False
 rotate_clockwise = False
 msl_tgr = False
-rock = []  # initialize rock list
-msl = []   # initialize missile list
-cyclectr = 0 # counter for game loop cycles
+rock = []      # initialize rock list
+msl = []       # initialize missile list
+cyclectr = 0   # counter for game loop cycles
 # this .set_mode has to come before loading images with '.convert()'
 # **NOTE I had to stip off the .convert method from .image.load due to non-transparent
-# artifacts being intoduced that degraded the image display
+# artifacts being introduced that degraded the image display
 #TODO educate self on why convert did not work as expected
 screen = pygame.display.set_mode([WIDTH, HEIGHT])
 
@@ -58,8 +61,10 @@ t_sound = pygame.mixer.Sound('thrust.wav')
 e_sound = pygame.mixer.Sound('explosion.wav')
 m_sound = pygame.mixer.Sound('missile.wav')
 b_sound.play(-1)  # start the background sound
+
+
 class ImageInfo:
-    def __init__(self, center, size, radius = 0, lifespan = None, animated = False):
+    def __init__(self, center, size, radius=0, lifespan=None, animated=False):
         self.center = center
         self.size = size
         self.radius = radius
@@ -89,7 +94,7 @@ class ImageInfo:
     
 # debris images - debris1_brown.png, debris2_brown.png, debris3_brown.png, debris4_brown.png
 #                 debris1_blue.png, debris2_blue.png, debris3_blue.png, debris4_blue.png, debris_blend.png
-debris_info = ImageInfo([320, 240], [640, 480])
+# debris_info = ImageInfo([320, 240], [640, 480])
 debris_image = pygame.image.load("debris2_blue.png")
 debris_image = pygame.transform.scale(debris_image, (WIDTH, HEIGHT))    # scale up
 #  to fit the entire screen
@@ -108,7 +113,7 @@ ship_info = ImageInfo([45, 45], [90, 90], 35)
 ship_image = pygame.image.load("double_ship.png")
 
 # missile image - shot1.png, shot2.png, shot3.png
-missile_info = ImageInfo([5,5], [10, 10], 3, 50)
+missile_info = ImageInfo([5, 5], [10, 10], 3, 50)
 missile_image = pygame.image.load("shot3.png")
 
 # asteroid images - asteroid_blue.png, asteroid_brown.png, asteroid_blend.png
@@ -126,7 +131,6 @@ ship_image.set_colorkey(WHITE)  # make background areas of image transparent
 missile_sound = pygame.mixer.Sound("missile.wav")
 #TODO may have to use Sound.set_volume method
 #missile_sound.set_volume(.5)
-#TODO have to convert all sound files to .wav
 #ship_thrust_sound = pygame.mixer.Sound("thrust.mp3")
 #explosion_sound = pygame.mixer.Sound("explosion.mp3")
 
