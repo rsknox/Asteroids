@@ -1,25 +1,26 @@
 # program for Spaceship
 # got (most) all simplegui statements converted to pygame commands
-#rev 10(?): 6 Aug 2015; 0756; got the rock spawner working
+# rev 10(?): 6 Aug 2015; 0756; got the rock spawner working
 #           TODO the right/left arrow keys and the up key (thrust) do not
 #           seem to work simultaneously
-#Rev 11: 6 Aug 2015, 1425 got the missiles firing from nose of the ship and 
+# Rev 11: 6 Aug 2015, 1425 got the missiles firing from nose of the ship and
 #           missile velocity greater than velocity of the ship
 #           TODO parameterize the missile velocity to something like 1.25 or 
 #           1.5 velocity of the ship
-#Rev 12:  6 Aug 2015, 1527  Fixed the problem with three keys down 
+# Rev 12:  6 Aug 2015, 1527  Fixed the problem with three keys down
 #           simultaneoulsy - 
 #           NOTE: have to use the 'q' key (lower case) to fire missiles - not 
 #           the space bar as apparently some keyboards will not accept three 
 #           keys in near vacinity down together
-#Rev 13: 6 Aug 2015, 1833 Got the collision detection working for ship and rocks
+# Rev 13: 6 Aug 2015, 1833 Got the collision detection working for ship and rocks
 #           and rocks and missiles
-#rev 14: 7 Aug 2015, 1436 got the rock and missile cull routines working
-#rev 15: 8 Aug 2015, 1858 got the explosion working
+# rev 14: 7 Aug 2015, 1436 got the rock and missile cull routines working
+# rev 15: 8 Aug 2015, 1858 got the explosion working
+#         TODO make sure the code works for more than one hit/explosion simultaneously
 # rev 16: 15 Aug 2015; 1523 verified that the program still works as developed
 #         to date; cleaned up some of the code
 #         using PyCharm for the first time
-# TODO make sure the code works for more than one hit/explosion simultaneously
+# Rev 17: 15 Aug 2015, 1853 added sounds for missiles and explosions
 
 import pygame, sys
 from pygame.locals import *
@@ -344,7 +345,6 @@ def draw(canvas):
 # timer handler that spawns a rock    
 cposr = [0, 0]
 velr = [0, 0]
-rock = []
 def rock_spawner():
     x = random.randint(0, WIDTH)
     cposr[0] = x
@@ -407,7 +407,7 @@ print('initial cyclectr value: ', cyclectr)
 #  variable 'timer' is getting incremented in 'draw' function, apparently
 #  every frame
 #timer = simplegui.create_timer(1000.0, rock_spawner)
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
+# screen = pygame.display.set_mode((WIDTH, HEIGHT))
 # initialize ship and two sprites
 my_ship = Ship([WIDTH / 2, HEIGHT / 2], [0, 0], 0, ship_image, ship_info)
 a_rock = Sprite([WIDTH / 3, HEIGHT / 3], [1, 1], 0, 0, asteroid_image, asteroid_info)
@@ -434,14 +434,7 @@ while not done:
             if event.key == K_UP:
                 my_ship.thrust = True
             if event.key == K_q:
-                #TODO probably need to move this to the update method and keep
-                # firing as long as the flag is True; right now it fires only
-                # once per key down it appears
-                #a_missile.angle = my_ship.get_angle()
-                #a_missile.pos = my_ship.get_pos()
-            #print('ship size and angle: ', a_missile.pos, a_missile.angle)
                 msl_tgr = True
-                #missile_fire(a_missile.pos, a_missile.angle)
                 
         if event.type == KEYUP:
             if event.key == K_ESCAPE:
@@ -465,6 +458,7 @@ while not done:
         # slow down firing rate to about every 200 ms
         if next_launch <= prog_time:
             missile_fire(a_missile.pos, a_missile.angle)
+            m_sound.play()
             next_launch = prog_time + 200
     
 
@@ -508,7 +502,8 @@ while not done:
                 rmv_rock_lst.append(i)
                 rmv_msl_lst.append(j)
                 iex = 0  # set counter for explosion
-                cexp = rcen
+                cexp = rcen   # set the center for the explosion
+                e_sound.play()
     # remove hit rocks and missiles
     #remove any duplicates in the lists
     a = set(rmv_rock_lst)
@@ -551,18 +546,15 @@ while not done:
     
 
     # ALL CODE TO DRAW SHOULD GO BELOW THIS COMMENT
-    
-    # First, clear the screen to white. Don't put other drawing commands
-    # above this, or they will be erased with this command.
-    # TODO (recheck this) I think this needs to come out, as we are 
-    #  putting up a background image
-    #screen.fill(GREEN)
+
     
     # ALL CODE TO DRAW SHOULD GO ABOVE THIS COMMENT
     #my_ship.angle = my_ship.angle + .5
     #print('my ship angle: ', my_ship.angle)
     draw(screen)
     # Go ahead and update the screen with what we've drawn.
+
+    # display the explosion for 24 cycles
     if iex < 24:
         do_expl(iex, cexp)
         iex = iex + 1
